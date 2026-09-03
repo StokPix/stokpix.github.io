@@ -144,7 +144,10 @@ ol.steps p{font-size:15px;color:var(--ink-2)}
 /* ---------- order ---------- */
 .order{background:var(--paper-2);border:1px solid var(--ink);margin-top:26px}
 .price-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:20px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
-.price{font-family:var(--mono);font-size:clamp(34px,7vw,46px);font-weight:600;line-height:1;letter-spacing:-.02em}
+.price{font-family:var(--mono);font-size:clamp(34px,7vw,46px);font-weight:600;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price s{font-size:20px;font-weight:400;color:var(--ink-3);text-decoration-thickness:1.5px}
+.price .intro{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);padding:2px 6px;font-weight:600;align-self:center}
+.already{margin-top:16px;font-size:14.5px;color:var(--ink-2);border-left:2px solid var(--rule);padding-left:14px;line-height:1.55}
 .price small{font-size:14px;font-weight:400;color:var(--ink-3);letter-spacing:0}
 .turn{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:right;line-height:1.7}
 .cta-wrap{padding:20px;display:flex;flex-direction:column;gap:12px}
@@ -284,7 +287,7 @@ footer a:hover{color:var(--stamp);border-color:var(--stamp)}
     <div class="head"><span class="n">04</span><h2>How it runs</h2></div>
     <ol class="steps">
       <li><span class="s">01</span><div><h3>You describe the claim</h3><p>Target, predictor, horizon, direction &mdash; and one sentence in plain words. No code, no spreadsheet, no data to send.</p></div></li>
-      <li><span class="s">02</span><div><h3>The free screen runs</h3><p>Gate 0. If it fails, that is your answer and it cost nothing. If it passes, the full test is offered.</p></div></li>
+      <li><span class="s">02</span><div><h3>You pay &pound;39</h3><p>One fixed fee, on submission. Nothing is charged if the claim falls outside what can be tested.</p></div></li>
       <li><span class="s">03</span><div><h3>The battery runs</h3><p>Costs, attempt deflation, placebo draws, power check, sealed holdout. Two working days. Same fee for a yes or a no.</p></div></li>
       <li><span class="s">04</span><div><h3>You get one page, signed</h3><p>Verdict, numbers, and what killed it if it died. Yours to publish, forward, or ignore.</p></div></li>
     </ol>
@@ -293,49 +296,27 @@ footer a:hover{color:var(--stamp);border-color:var(--stamp)}
 
 <section>
   <div class="wrap">
-    <div class="head"><span class="n">05</span><h2>Two steps, and the first is free</h2></div>
+    <div class="head"><span class="n">05</span><h2>Order a test</h2></div>
     <div class="body-stack">
-      <p>The screen costs nothing because it <strong>commits</strong> nothing. The full test spends
-      something that cannot be got back &mdash; a slice of history, sealed and scored once &mdash;
-      which is the whole reason its answer is worth anything.</p>
+      <p>One claim, one fixed fee, one signed page. <strong>The same price whether the answer is
+      yes or no</strong> &mdash; which is the only arrangement under which the no is worth anything.</p>
     </div>
 
-    <div class="tiers">
-      <div class="tier">
-        <span class="t-name">Step one &middot; Gate 0</span>
-        <span class="t-price">Free</span>
-        <p class="t-sub">The screen this desk runs before it will spend anything on a claim of its own.</p>
-        <ul class="t-list">
-          <li>Does the relationship clear the admission bar at all</li>
-          <li>Is there <b>enough history</b> to answer the question</li>
-          <li>Is the record clean enough to test</li>
-          <li><b>Calibrated on 36 lanes:</b> a pass has roughly an <b>80% chance</b> of surviving the first real gate</li>
-          <li>One screen per person. No card, no account</li>
-        </ul>
-        <a class="btn ghost" href="submit.html">Run the free screen &rarr;</a>
+    <div class="order">
+      <div class="price-row">
+        <span class="price"><s>&pound;99</s> &pound;39 <span class="intro">Introductory</span></span>
+        <span class="turn">Two working days<br>Fixed fee, paid on submission</span>
       </div>
-
-      <div class="tier paid">
-        <span class="t-name">Step two &middot; Gates 1&ndash;3</span>
-        <span class="t-price"><s>&pound;99</s> &pound;39 <span class="intro">Introductory</span></span>
-        <p class="t-sub">Offered only if the screen passes. Two working days.</p>
-        <ul class="t-list">
-          <li>Real costs first, in the units the venue charges them</li>
-          <li><b>Your attempts counted</b> &mdash; the search behind the rule changes the bar</li>
-          <li>Placebo draws built from <b>your own market</b>, not a generic random series</li>
-          <li>A <b>sealed holdout</b> you never see, scored once</li>
-          <li>One signed page. Same fee whether the answer is yes or no</li>
-        </ul>
-        <a class="btn solid" href="submit.html">Order the full test &rarr;</a>
+      <div class="cta-wrap">
+        <a class="cta" href="submit.html" id="order">Scope a claim &rarr;</a>
+        <p class="fineprint">Out&#8209;of&#8209;scope claims are refused before payment. This is a test
+        of a stated claim, not investment advice, and no result is a recommendation to buy or sell
+        anything.</p>
       </div>
     </div>
 
     <p class="already">If this desk has already tested the pair you submit, you get the existing
     verdict the same day &mdash; at no charge. The work is done; you are not paying for it twice.</p>
-
-    <p class="fineprint" style="margin-top:16px">Out&#8209;of&#8209;scope claims are refused before
-    payment. This is a test of a stated claim, not investment advice, and no result is a
-    recommendation to buy or sell anything.</p>
   </div>
 </section>
 
