@@ -147,6 +147,18 @@ ol.steps p{font-size:15px;color:var(--ink-2)}
 .price{font-family:var(--mono);font-size:clamp(34px,7vw,46px);font-weight:600;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .price s{font-size:20px;font-weight:400;color:var(--ink-3);text-decoration-thickness:1.5px}
 .price .intro{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);padding:2px 6px;font-weight:600;align-self:center}
+.door{margin-top:30px;border:1px solid var(--rule);border-left:3px solid var(--stamp);background:var(--paper-2)}
+.door-h{padding:16px 20px 0}
+.door h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:0 0 7px}
+.door p{font-size:15px;color:var(--ink-2);line-height:1.55}
+.door form{padding:16px 20px 20px;display:flex;flex-direction:column;gap:11px}
+.door label{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink-3);display:block;margin-bottom:5px}
+.door input{font-family:var(--sans);font-size:15.5px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:10px 12px;width:100%}
+.door input:focus{outline:2px solid var(--stamp);outline-offset:1px;border-color:var(--stamp)}
+.door button{margin-top:3px;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--ink);font-family:var(--mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;padding:13px;transition:background .15s ease,color .15s ease}
+.door button:hover{background:var(--stamp);border-color:var(--stamp);color:#fff}
+.door button:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+.door .note{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6}
 .already{margin-top:16px;font-size:14.5px;color:var(--ink-2);border-left:2px solid var(--rule);padding-left:14px;line-height:1.55}
 .price small{font-size:14px;font-weight:400;color:var(--ink-3);letter-spacing:0}
 .turn{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:right;line-height:1.7}
@@ -192,6 +204,18 @@ footer a:hover{color:var(--stamp);border-color:var(--stamp)}
 .btn.solid{background:var(--ink);color:var(--paper)}
 .btn.solid:hover{background:var(--stamp);border-color:var(--stamp);color:#fff}
 .btn:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+.door{margin-top:30px;border:1px solid var(--rule);border-left:3px solid var(--stamp);background:var(--paper-2)}
+.door-h{padding:16px 20px 0}
+.door h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:0 0 7px}
+.door p{font-size:15px;color:var(--ink-2);line-height:1.55}
+.door form{padding:16px 20px 20px;display:flex;flex-direction:column;gap:11px}
+.door label{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink-3);display:block;margin-bottom:5px}
+.door input{font-family:var(--sans);font-size:15.5px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:10px 12px;width:100%}
+.door input:focus{outline:2px solid var(--stamp);outline-offset:1px;border-color:var(--stamp)}
+.door button{margin-top:3px;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--ink);font-family:var(--mono);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;padding:13px;transition:background .15s ease,color .15s ease}
+.door button:hover{background:var(--stamp);border-color:var(--stamp);color:#fff}
+.door button:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+.door .note{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6}
 .already{margin-top:16px;font-size:14.5px;color:var(--ink-2);border-left:2px solid var(--rule);padding-left:14px;line-height:1.55}
 
 @media (max-width:640px){.tiers{grid-template-columns:1fr}.tier+.tier{border-left:0;border-top:1px solid var(--ink)}}
@@ -305,18 +329,43 @@ footer a:hover{color:var(--stamp);border-color:var(--stamp)}
     <div class="order">
       <div class="price-row">
         <span class="price"><s>&pound;99</s> &pound;39 <span class="intro">Introductory</span></span>
-        <span class="turn">Two working days<br>Fixed fee, paid on submission</span>
+        <span class="turn">Two working days<br>Introductory rate, first ten orders</span>
       </div>
       <div class="cta-wrap">
         <a class="cta" href="submit.html" id="order">Scope a claim &rarr;</a>
-        <p class="fineprint">Out&#8209;of&#8209;scope claims are refused before payment. This is a test
-        of a stated claim, not investment advice, and no result is a recommendation to buy or sell
-        anything.</p>
+        <p class="fineprint">&pound;39 is the introductory rate for the first ten orders; the
+        standing price is &pound;99. Out&#8209;of&#8209;scope claims are refused before payment. This is
+        a test of a stated claim, not investment advice, and no result is a recommendation to buy or
+        sell anything.</p>
       </div>
     </div>
 
     <p class="already">If this desk has already tested the pair you submit, you get the existing
     verdict the same day &mdash; at no charge. The work is done; you are not paying for it twice.</p>
+
+    <div class="door">
+      <div class="door-h">
+        <h3>Already published it?</h3>
+        <p>Send the link. Within two working days you get what a sceptical reader finds &mdash; and
+        what a full read would cost.</p>
+      </div>
+      <form action="https://formspree.io/f/REPLACE_ME" method="POST">
+        <div>
+          <label for="claimlink">Link to the claim</label>
+          <input type="url" id="claimlink" name="claim_link" required
+                 placeholder="a post, a tearsheet, an equity curve">
+        </div>
+        <div>
+          <label for="claimemail">Email</label>
+          <input type="email" id="claimemail" name="email" required placeholder="you@firm.com">
+        </div>
+        <input type="hidden" name="request" value="published claim read">
+        <input type="hidden" name="_subject" value="Published claim read requested">
+        <button type="submit">Send the link &rarr;</button>
+        <p class="note">No charge and no card for the first read. Dates, sealing, fee treatment,
+        trade counts against the stated result &mdash; whatever the claim can be checked on.</p>
+      </form>
+    </div>
   </div>
 </section>
 
