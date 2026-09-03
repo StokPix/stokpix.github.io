@@ -154,6 +154,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </div>
 
       <div class="f">
+        <label for="tier">Which do you want?</label>
+        <select id="tier" name="tier" required>
+          <option value="gate0" selected>Gate 0 screen &mdash; free</option>
+          <option value="full">Full test, Gates 1&ndash;3 &mdash; &pound;39 introductory (normally &pound;99)</option>
+        </select>
+        <span class="hint">The screen is free and commits nothing. Most people start there.</span>
+      </div>
+
+      <div class="f">
         <label for="direction">Direction</label>
         <select id="direction" name="direction" required>
           <option value="long">Long only</option>
@@ -215,14 +224,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <div class="k">Construction</div><div id="s-con">ret_13w &rarr; 4w</div>
       <div class="k">Bar</div><div id="s-bar">weekly</div>
       <div class="k">Attempts declared</div><div id="s-att">1</div>
-      <div class="k">Fee</div><div id="s-fee">&pound;39</div>
+      <div class="k">Requested</div><div id="s-fee">Gate 0 &mdash; free</div>
     </div>
   </div>
 
-  <button class="submit" id="go" type="submit">Submit &amp; pay &pound;39 &rarr;</button>
-  <p class="fineprint">Payment is taken on the next screen. Same fee whether the answer is yes or
-  no. This is a test of a stated claim, not investment advice, and no result is a recommendation
-  to buy or sell anything.</p>
+  <button class="submit" id="go" type="submit">Submit for the free screen &rarr;</button>
+  <p class="fineprint">The Gate 0 screen is free and takes no payment. If you asked for the full
+  test, payment is taken on the next screen &mdash; same fee whether the answer is yes or no. If this
+  desk has already tested your pair you get the existing verdict the same day, at no charge. This is a
+  test of a stated claim, not investment advice, and no result is a recommendation to buy or sell
+  anything.</p>
 
   <input type="hidden" name="_subject" value="New claim submission">
   <input type="hidden" name="_next" value="REPLACE_WITH_STRIPE_LINK">
@@ -237,7 +248,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <script>
 (function(){
   var $=function(id){return document.getElementById(id)};
-  var f=['target','predictor','transform','bar','horizon','attempts'];
+  var f=['target','predictor','transform','bar','horizon','attempts','tier'];
   function sync(){
     var t=($('target').value||'—').toUpperCase().trim();
     var p=($('predictor').value||'—').toUpperCase().trim();
@@ -245,12 +256,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     $('s-con').textContent=$('transform').value+' → '+$('horizon').value;
     $('s-bar').textContent=$('bar').value==='weekly'?'weekly':'not supported';
     $('s-att').textContent=$('attempts').value||'—';
+    var free=$('tier').value==='gate0';
+    $('s-fee').textContent=free?'Gate 0 — free':'Gates 1–3 — £39';
     var ok=$('bar').value==='weekly';
     var v=$('v');
     v.textContent=ok?'In scope':'Out of scope';
     v.className=ok?'verdict':'verdict bad';
     $('go').disabled=!ok;
-    $('go').textContent=ok?'Submit & pay £39 →':'Cannot be tested — weekly bars only';
+    $('go').textContent=!ok?'Cannot be tested — weekly bars only'
+      :(free?'Submit for the free screen →':'Submit & pay £39 →');
   }
   f.forEach(function(id){
     var el=$(id);
