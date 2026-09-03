@@ -1,0 +1,262 @@
+<title>Scope A Claim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+:root{
+  --paper:#F6F7F6; --paper-2:#EDEFEE; --ink:#121614; --ink-2:#3E4643; --ink-3:#6B736E;
+  --rule:#C9CEC9; --rule-2:#DDE1DD; --stamp:#8C2F26; --stamp-soft:#8C2F2614; --pass:#2C5A3B;
+  --field:#FFFFFF;
+  --serif:"IBM Plex Serif",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --measure:62ch; --pad:clamp(20px,5vw,44px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#D9705F; --stamp-soft:#D9705F1F; --pass:#6FB183;
+  --field:#121614;
+}}
+:root[data-theme="dark"]{
+  --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#D9705F; --stamp-soft:#D9705F1F; --pass:#6FB183;
+  --field:#121614;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 var(--pad)}
+h1,h2{font-family:var(--serif);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+
+header{border-bottom:1px solid var(--ink);padding-top:clamp(24px,5vw,40px)}
+header .wrap{display:flex;flex-direction:column;gap:14px;padding-bottom:22px}
+.back{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-decoration:none}
+.back:hover{color:var(--stamp)}
+h1{font-size:clamp(28px,5.6vw,38px);font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.sub{color:var(--ink-2);max-width:50ch}
+
+form{padding:clamp(28px,5vw,42px) 0 0}
+fieldset{border:0;padding:0;margin:0 0 30px}
+legend{padding:0;margin-bottom:4px}
+.grp{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--rule);padding-top:18px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f label{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.hint{font-size:13.5px;color:var(--ink-3);line-height:1.5}
+input[type=text],input[type=email],input[type=number],select,textarea{
+  font-family:var(--sans);font-size:16px;color:var(--ink);background:var(--field);
+  border:1px solid var(--rule);border-radius:0;padding:11px 12px;width:100%;
+}
+select{font-family:var(--mono);font-size:14.5px;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px}
+textarea{min-height:96px;resize:vertical;line-height:1.55}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--stamp);outline-offset:1px;border-color:var(--stamp)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.note{
+  border-left:2px solid var(--stamp);background:var(--stamp-soft);
+  padding:12px 14px;font-size:14.5px;color:var(--ink-2);line-height:1.55;
+}
+.note b{color:var(--stamp)}
+
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.check input{margin-top:3px;accent-color:var(--stamp);width:16px;height:16px;flex:none}
+
+.summary{border:1px solid var(--rule);background:var(--paper-2);margin-bottom:22px}
+.summary .sh{padding:10px 14px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.summary .rows{display:grid;grid-template-columns:1fr auto;font-family:var(--mono);font-size:13px}
+.summary .rows>div{padding:8px 14px;border-bottom:1px solid var(--rule-2)}
+.summary .rows>div:nth-child(2n){text-align:right;font-variant-numeric:tabular-nums}
+.summary .rows .k{color:var(--ink-2)}
+.verdict{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;padding:3px 8px;border-radius:2px;border:1.5px solid var(--pass);color:var(--pass)}
+.verdict.bad{border-color:var(--stamp);color:var(--stamp);background:var(--stamp-soft)}
+
+.submit{
+  display:block;width:100%;text-align:center;text-decoration:none;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:1px solid var(--ink);
+  font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px;
+  transition:background .15s ease;
+}
+.submit:hover:not(:disabled){background:var(--stamp);border-color:var(--stamp);color:#fff}
+.submit:disabled{opacity:.35;cursor:not-allowed}
+.fineprint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7;margin-top:12px}
+footer{border-top:1px solid var(--ink);margin-top:44px;padding:20px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+@media (max-width:520px){.pair{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; Back</a>
+    <h1>Scope a claim</h1>
+    <p class="sub">Four fields and a sentence. If the claim falls outside what this desk can
+    rebuild from independent data, the form will say so before you pay &mdash; not afterwards.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<form id="f" action="https://formspree.io/f/REPLACE_ME" method="POST">
+
+  <fieldset>
+    <legend class="lbl">01 &mdash; The claim</legend>
+    <div class="grp">
+      <div class="pair">
+        <div class="f">
+          <label for="target">Target</label>
+          <input type="text" id="target" name="target" placeholder="e.g. SO" required>
+          <span class="hint">The market you believe moves second.</span>
+        </div>
+        <div class="f">
+          <label for="predictor">Predictor</label>
+          <input type="text" id="predictor" name="predictor" placeholder="e.g. TLT" required>
+          <span class="hint">The market you believe moves first.</span>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="f">
+          <label for="transform">Transformation</label>
+          <select id="transform" name="transform" required>
+            <option value="ret_4w">4-week return</option>
+            <option value="ret_8w">8-week return</option>
+            <option value="ret_13w" selected>13-week return</option>
+            <option value="ret_26w">26-week return</option>
+            <option value="ret_52w">52-week return</option>
+            <option value="lvl">Level &mdash; raw value, untransformed</option>
+          </select>
+          <span class="hint">What is measured on the predictor.</span>
+        </div>
+        <div class="f">
+          <label for="bar">Bar size</label>
+          <select id="bar" name="bar" required>
+            <option value="weekly" selected>Weekly</option>
+            <option value="other">Something else</option>
+          </select>
+          <span class="hint">Weekly only at present.</span>
+        </div>
+      </div>
+
+      <div class="f">
+        <label for="horizon">Horizon</label>
+        <select id="horizon" name="horizon" required>
+          <option value="1w">1 week ahead</option>
+          <option value="4w" selected>4 weeks ahead</option>
+          <option value="8w">8 weeks ahead</option>
+          <option value="13w">13 weeks ahead</option>
+          <option value="26w">26 weeks ahead</option>
+        </select>
+        <span class="hint">How far ahead the target is scored.</span>
+      </div>
+
+      <div class="f">
+        <label for="direction">Direction</label>
+        <select id="direction" name="direction" required>
+          <option value="long">Long only</option>
+          <option value="longshort" selected>Long and short</option>
+        </select>
+      </div>
+
+      <div class="f">
+        <label for="claim">The claim, in one sentence</label>
+        <textarea id="claim" name="claim" required placeholder="Rates lead utilities &mdash; when long bonds rally, Southern follows within a month."></textarea>
+        <span class="hint">Plain words. No code, no spreadsheet, no data to send.</span>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="lbl">02 &mdash; The search behind it</legend>
+    <div class="grp">
+      <div class="f">
+        <label for="attempts">How many variations did you try before this one?</label>
+        <input type="number" id="attempts" name="attempts" min="1" value="1" required>
+        <span class="hint">Different pairs, windows or horizons you looked at before settling here.
+        An honest number is worth more to you than a low one.</span>
+      </div>
+      <div class="note">
+        <b>This is the question that changes the answer.</b> A rule chosen from forty attempts
+        must clear a materially higher bar than the same rule chosen first. A test that ignores
+        the search measures the search, not the rule.
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="lbl">03 &mdash; Where to send it</legend>
+    <div class="grp">
+      <div class="f">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@firm.com">
+      </div>
+      <div class="f">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <label class="check">
+        <input type="checkbox" id="pub" name="may_quote" value="yes">
+        <span>You may quote the verdict anonymously as a reference &mdash; never my rule,
+        my tickers or my name. <b>Introductory rate applies.</b></span>
+      </label>
+    </div>
+  </fieldset>
+
+  <div class="summary" aria-live="polite">
+    <div class="sh">
+      <span class="lbl">Scope check</span>
+      <span class="verdict" id="v">In scope</span>
+    </div>
+    <div class="rows">
+      <div class="k">Lane</div><div id="s-lane">SO &larr; TLT</div>
+      <div class="k">Construction</div><div id="s-con">ret_13w &rarr; 4w</div>
+      <div class="k">Bar</div><div id="s-bar">weekly</div>
+      <div class="k">Attempts declared</div><div id="s-att">1</div>
+      <div class="k">Fee</div><div id="s-fee">&pound;39</div>
+    </div>
+  </div>
+
+  <button class="submit" id="go" type="submit">Submit &amp; pay &pound;39 &rarr;</button>
+  <p class="fineprint">Payment is taken on the next screen. Same fee whether the answer is yes or
+  no. This is a test of a stated claim, not investment advice, and no result is a recommendation
+  to buy or sell anything.</p>
+
+  <input type="hidden" name="_subject" value="New claim submission">
+  <input type="hidden" name="_next" value="REPLACE_WITH_STRIPE_LINK">
+</form>
+</main>
+
+<footer><div class="wrap">
+  <span>StokPix &middot; Systematic Testing Desk</span>
+  <span><a href="https://x.com/StokPix" style="color:inherit">&#64;StokPix</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var f=['target','predictor','transform','bar','horizon','attempts'];
+  function sync(){
+    var t=($('target').value||'—').toUpperCase().trim();
+    var p=($('predictor').value||'—').toUpperCase().trim();
+    $('s-lane').textContent=t+' ← '+p;
+    $('s-con').textContent=$('transform').value+' → '+$('horizon').value;
+    $('s-bar').textContent=$('bar').value==='weekly'?'weekly':'not supported';
+    $('s-att').textContent=$('attempts').value||'—';
+    var ok=$('bar').value==='weekly';
+    var v=$('v');
+    v.textContent=ok?'In scope':'Out of scope';
+    v.className=ok?'verdict':'verdict bad';
+    $('go').disabled=!ok;
+    $('go').textContent=ok?'Submit & pay £39 →':'Cannot be tested — weekly bars only';
+  }
+  f.forEach(function(id){
+    var el=$(id);
+    el.addEventListener('input',sync);
+    el.addEventListener('change',sync);
+  });
+  sync();
+})();
+</script>
