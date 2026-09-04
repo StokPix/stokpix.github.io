@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Scope A Claim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6,7 +7,7 @@
 <style>
 :root{
   --paper:#F6F7F6; --paper-2:#EDEFEE; --ink:#121614; --ink-2:#3E4643; --ink-3:#6B736E;
-  --rule:#C9CEC9; --rule-2:#DDE1DD; --stamp:#8C2F26; --stamp-soft:#8C2F2614; --pass:#2C5A3B;
+  --rule:#C9CEC9; --rule-2:#DDE1DD; --stamp:#075ac2; --stamp-soft:#075ac214; --pass:#009028; --fail:#B3261E; --fail-soft:#B3261E14;
   --field:#FFFFFF;
   --serif:"IBM Plex Serif",Georgia,serif;
   --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
@@ -15,12 +16,12 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
-  --rule:#2C332F; --rule-2:#232926; --stamp:#D9705F; --stamp-soft:#D9705F1F; --pass:#6FB183;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#4E93EF; --stamp-soft:#4E93EF1F; --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
   --field:#121614;
 }}
 :root[data-theme="dark"]{
   --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
-  --rule:#2C332F; --rule-2:#232926; --stamp:#D9705F; --stamp-soft:#D9705F1F; --pass:#6FB183;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#4E93EF; --stamp-soft:#4E93EF1F; --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
   --field:#121614;
 }
 
@@ -73,7 +74,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--stamp);outline-o
 .summary .rows>div:nth-child(2n){text-align:right;font-variant-numeric:tabular-nums}
 .summary .rows .k{color:var(--ink-2)}
 .verdict{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;padding:3px 8px;border-radius:2px;border:1.5px solid var(--pass);color:var(--pass)}
-.verdict.bad{border-color:var(--stamp);color:var(--stamp);background:var(--stamp-soft)}
+.verdict.bad{border-color:var(--fail);color:var(--fail);background:var(--fail-soft)}
 
 .submit{
   display:block;width:100%;text-align:center;text-decoration:none;cursor:pointer;
@@ -100,7 +101,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </header>
 
 <main class="wrap">
-<form id="f" action="https://formspree.io/f/REPLACE_ME" method="POST">
+<form id="f" action="https://formspree.io/f/mqpklqnp" method="POST">
 
   <fieldset>
     <legend class="lbl">01 &mdash; The claim</legend>
@@ -219,15 +220,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     </div>
   </div>
 
-  <button class="submit" id="go" type="submit">Submit &amp; pay &pound;39 &rarr;</button>
-  <p class="fineprint">&pound;39 is the introductory rate for the first ten orders; the standing
-  price is &pound;99. Payment is taken on the next screen &mdash; same fee whether the answer is
-  yes or no. If this desk has already tested your pair you get the existing verdict the same day, at
-  no charge. This is a test of a stated claim, not investment advice, and no result is a
-  recommendation to buy or sell anything.</p>
+  <button class="submit" id="go" type="submit">Send the claim &rarr;</button>
+  <p class="fineprint">Nothing is charged now. The claim is read by hand and you get a yes or a no
+  on whether it can be tested, with a payment link, within one working day. &pound;39 is the
+  introductory rate for the first ten orders; the standing price is &pound;99 &mdash; same fee
+  whether the answer is yes or no. If this desk has already tested your pair you get the existing
+  verdict the same day, at no charge. This is a test of a stated claim, not investment advice, and
+  no result is a recommendation to buy or sell anything.</p>
 
   <input type="hidden" name="_subject" value="New claim submission">
-  <input type="hidden" name="_next" value="REPLACE_WITH_STRIPE_LINK">
+  <input type="hidden" name="_next" value="thanks.html">
 </form>
 </main>
 
@@ -252,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     v.textContent=ok?'In scope':'Out of scope';
     v.className=ok?'verdict':'verdict bad';
     $('go').disabled=!ok;
-    $('go').textContent=ok?'Submit & pay £39 →':'Cannot be tested — weekly bars only';
+    $('go').textContent=ok?'Send the claim →':'Cannot be tested — weekly bars only';
   }
   f.forEach(function(id){
     var el=$(id);

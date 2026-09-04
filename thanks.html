@@ -1,0 +1,72 @@
+<meta charset="utf-8">
+<title>Claim received</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+
+:root{
+  --paper:#F6F7F6; --paper-2:#EDEFEE; --ink:#121614; --ink-2:#3E4643; --ink-3:#6B736E;
+  --rule:#C9CEC9; --rule-2:#DDE1DD; --stamp:#075ac2; --stamp-soft:#075ac214; --pass:#009028; --fail:#B3261E; --fail-soft:#B3261E14;
+  --field:#FFFFFF;
+  --serif:"IBM Plex Serif",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --measure:62ch; --pad:clamp(20px,5vw,44px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#4E93EF; --stamp-soft:#4E93EF1F; --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
+  --field:#121614;
+}}
+:root[data-theme="dark"]{
+  --paper:#0F1211; --paper-2:#171B19; --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
+  --rule:#2C332F; --rule-2:#232926; --stamp:#4E93EF; --stamp-soft:#4E93EF1F; --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
+  --field:#121614;
+}
+
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:60ch;margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+a{color:inherit}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+header{border-bottom:1px solid var(--rule);padding:22px 0 18px;margin-bottom:56px}
+h1{font-family:var(--serif);font-size:clamp(30px,5vw,42px);margin:0 0 18px;text-wrap:balance}
+p{margin:0 0 18px}
+.steps{border:1px solid var(--rule);border-left:3px solid var(--stamp);background:var(--paper-2);padding:22px 24px;margin:32px 0}
+.steps ol{margin:0;padding-left:20px}
+.steps li{margin-bottom:10px}
+.steps li:last-child{margin-bottom:0}
+.fine{font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:18px;margin-top:44px}
+footer{border-top:1px solid var(--rule);margin-top:64px;padding:22px 0 40px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+
+<header><div class="wrap"><span class="lbl">StokPix &middot; Systematic Testing Desk</span></div></header>
+
+<main class="wrap">
+  <h1>The claim is in.</h1>
+
+  <p>It is read by hand, not by a form. Nothing has been charged and no card details were taken.</p>
+
+  <div class="steps">
+    <ol>
+      <li><b>Within one working day</b> &mdash; a reply saying whether the claim can be tested as written, and if it cannot, exactly why.</li>
+      <li><b>If it can</b> &mdash; that reply carries a payment link for &pound;39.</li>
+      <li><b>Two working days from payment</b> &mdash; one signed page: the verdict, the numbers behind it, and what killed it if it died.</li>
+    </ol>
+  </div>
+
+  <p>If this desk has already tested the pair submitted, the existing verdict comes back the same
+  day at no charge. The work is done; nobody pays for it twice.</p>
+
+  <p class="fine">&pound;39 is the introductory rate for the first ten orders; the standing price is
+  &pound;99. The fee is the same whether the answer is yes or no &mdash; which is the only
+  arrangement under which the no is worth anything. This is a test of a stated claim, not investment
+  advice, and no result is a recommendation to buy or sell anything.</p>
+</main>
+
+<footer class="wrap">
+  <span>StokPix &middot; Systematic Testing Desk</span>
+  <a href="https://x.com/StokPix">@StokPix</a>
+</footer>
