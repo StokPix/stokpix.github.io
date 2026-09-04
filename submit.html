@@ -198,11 +198,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
       </div>
-      <label class="check">
-        <input type="checkbox" id="pub" name="may_quote" value="yes">
-        <span>You may quote the verdict anonymously as a reference &mdash; never my rule,
-        my tickers or my name. <b>Introductory rate applies.</b></span>
-      </label>
     </div>
   </fieldset>
 
@@ -263,4 +258,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   });
   sync();
 })();
+</script>
+
+<script>
+(function(){try{
+  var p=new URLSearchParams(location.search), s=p.get('src');
+  if(s) sessionStorage.setItem('stokpix_src', s.slice(0,60));
+  var src=sessionStorage.getItem('stokpix_src')||'direct';
+  var ref=(document.referrer||'').slice(0,120);
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('form').forEach(function(f){
+      [['source',src],['referrer',ref],['landed',new Date().toISOString()]].forEach(function(kv){
+        if(f.querySelector('[name="'+kv[0]+'"]')) return;
+        var i=document.createElement('input');
+        i.type='hidden'; i.name=kv[0]; i.value=kv[1]; f.appendChild(i);
+      });
+    });
+  });
+}catch(e){}})();
 </script>

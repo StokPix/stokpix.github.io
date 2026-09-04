@@ -385,3 +385,21 @@ footer a:hover{color:var(--stamp);border-color:var(--stamp)}
     <span><a href="https://x.com/StokPix">&#64;StokPix</a></span>
   </div>
 </footer>
+
+<script>
+(function(){try{
+  var p=new URLSearchParams(location.search), s=p.get('src');
+  if(s) sessionStorage.setItem('stokpix_src', s.slice(0,60));
+  var src=sessionStorage.getItem('stokpix_src')||'direct';
+  var ref=(document.referrer||'').slice(0,120);
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('form').forEach(function(f){
+      [['source',src],['referrer',ref],['landed',new Date().toISOString()]].forEach(function(kv){
+        if(f.querySelector('[name="'+kv[0]+'"]')) return;
+        var i=document.createElement('input');
+        i.type='hidden'; i.name=kv[0]; i.value=kv[1]; f.appendChild(i);
+      });
+    });
+  });
+}catch(e){}})();
+</script>
