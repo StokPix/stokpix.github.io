@@ -267,8 +267,8 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 
 // Stripe payment links go here, one per item. Until they exist the buttons say so.
 var LINKS = {
-  DESK_M: "",
-  DESK_Y: ""
+  DESK_M: "https://buy.stripe.com/00wdRa05s2bw8FVg1b2Ry01",
+  DESK_Y: "https://buy.stripe.com/dRm3cw19wdUe3lB4it2Ry02"
 };
 document.querySelectorAll('[data-stripe]').forEach(function(a){
   var k=a.getAttribute('data-stripe'), url=LINKS[k];
