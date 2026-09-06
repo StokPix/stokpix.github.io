@@ -10,7 +10,7 @@
   --paper:#F6F7F6; --paper-2:#EDEFEE;
   --ink:#121614; --ink-2:#3E4643; --ink-3:#6B736E;
   --rule:#C9CEC9; --rule-2:#DDE1DD;
-  --stamp:#075ac2; --stamp-soft:#075ac214;
+  --stamp:#8b1a1a; --stamp-soft:#8b1a1a14;
   --pass:#009028; --fail:#B3261E; --fail-soft:#B3261E14;
   --shadow:rgba(18,22,20,.07);
   --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
@@ -24,7 +24,7 @@
     --paper:#0F1211; --paper-2:#171B19;
     --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
     --rule:#2C332F; --rule-2:#232926;
-    --stamp:#4E93EF; --stamp-soft:#4E93EF1F;
+    --stamp:#c94a48; --stamp-soft:#c94a481f;
     --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
     --shadow:rgba(0,0,0,.4);
   }
@@ -33,7 +33,7 @@
   --paper:#0F1211; --paper-2:#171B19;
   --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
   --rule:#2C332F; --rule-2:#232926;
-  --stamp:#4E93EF; --stamp-soft:#4E93EF1F;
+  --stamp:#c94a48; --stamp-soft:#c94a481f;
   --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
   --shadow:rgba(0,0,0,.4);
 }
@@ -72,15 +72,15 @@ p{max-width:var(--measure)}
 .menu{display:grid;gap:14px}
 .item{border:1px solid var(--rule);border-radius:4px;background:var(--paper-2);
   padding:20px clamp(18px,3vw,26px);display:grid;gap:18px;
-  grid-template-columns:minmax(0,1.15fr) minmax(0,1.5fr) auto;align-items:center}
+  grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;align-items:center}
 .item.top{border-color:var(--stamp);box-shadow:0 0 0 1px var(--stamp) inset}
 .id{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .mkt{font-family:var(--serif);font-size:clamp(21px,3vw,26px);font-weight:600;line-height:1.15;margin:3px 0 6px}
 .spec{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
-.ev{display:flex;flex-wrap:wrap;gap:5px 22px;font-family:var(--mono);font-size:12.5px}
+.ev{display:flex;flex-wrap:wrap;gap:5px 22px;font-family:var(--mono);font-size:12.5px;min-width:0}
 .ev i{font-style:normal;display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink-3);margin-bottom:2px}
-.ev b{font-weight:600;font-size:15px}
+.ev b{font-weight:600;font-size:15px;white-space:nowrap}
 .hero-pf b{color:var(--pass)}
 .buy{text-align:right;white-space:nowrap}
 .price{font-family:var(--mono);font-size:clamp(21px,3vw,25px);font-weight:600;display:block}
@@ -134,9 +134,9 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 
   <div class="tally">
     <div><b>200+</b><span>strategies tested</span></div>
+    <div><b>4</b><span>validated on unseen data</span></div>
     <div><b>2</b><span>on the board</span></div>
-    <div><b>434</b><span>out-of-sample trades</span></div>
-    <div><b>1</b><span>week per position</span></div>
+    <div><b>228</b><span>out-of-sample trades</span></div>
   </div>
 </header>
 
@@ -156,7 +156,7 @@ footer p{max-width:var(--measure);margin:0 0 10px}
         <div class="hero-pf"><i>Profit factor, net</i><b>1.257</b></div>
         <div><i>Win rate</i><b>57.6%</b></div>
         <div><i>OOS trades</i><b>118</b></div>
-        <div><i>Max drawdown</i><b>0.26R</b></div>
+        <div><i>Max drawdown</i><b>0.28R</b></div>
         <div><i>Fires</i><b>~26 / yr</b></div>
       </div>
       <div class="buy">
@@ -174,6 +174,7 @@ footer p{max-width:var(--measure);margin:0 0 10px}
         <div><i>Profit factor, net</i><b>1.157</b></div>
         <div><i>Win rate</i><b>61.8%</b></div>
         <div><i>OOS trades</i><b>110</b></div>
+        <div><i>Max drawdown</i><b>0.33R</b></div>
         <div><i>Fires</i><b>~32 / yr</b></div>
       </div>
       <div class="buy">
@@ -234,7 +235,7 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 
 <section>
   <h2>What certified means here</h2>
-  <p style="margin-top:0">A region was written down and sealed <b>before</b> the holdout was opened. The holdout was scored once, with the fee charged, and cannot be re-run. Nobody signs it off; <b>the stamp comes from the tests.</b> That is why there are four and not two hundred.</p>
+  <p style="margin-top:0">A region was written down and sealed <b>before</b> the holdout was opened. The holdout was scored once, with the fee charged, and cannot be re-run. Nobody signs it off; <b>the stamp comes from the tests.</b> Four cleared it. Two are strong enough net of fees to be on the board.</p>
 
   <div class="note" style="margin-top:22px">
     <p><b>Not predictions. No guarantee.</b> Every number here is a measurement of what already happened on data the model had not seen. Past results do not imply future ones, and any edge can stop working without notice.</p>
@@ -243,7 +244,7 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 
 <footer>
   <p class="fine"><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Trading carries risk and you can lose more than you put in. If you need advice, speak to someone authorised to give it.</p>
-  <p class="fine">Every figure is read from the desk&rsquo;s locked-edge register. Profit factors are net of the measured round-trip fee (gross: S185 1.618 · S147 1.270 · S114 1.066 · S142 1.014). Holdouts are each market&rsquo;s sealed final years, opened once on 30 January 2026 and scored once. The trade files behind any row are available by <a href="submit.html">reply</a>.</p>
+  <p class="fine">Every figure is read from the desk&rsquo;s locked-edge register. Four cleared the holdout (gross: S185 1.618 · S147 1.270 · S114 1.066 · S142 1.014); the two on the board are the two that are strong enough net of the measured fee. Holdouts are each market&rsquo;s sealed final years, opened once on 30 January 2026 and scored once. The trade files behind any row are available by <a href="submit.html">reply</a>.</p>
   <p class="fine">© 2026 StokPix · <a href="https://x.com/StokPix">@StokPix</a></p>
 </footer>
 
