@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>StokPix — Certified Edges</title>
+<title>StokPix — The Desk</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.png" type="image/png" sizes="48x48">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,91 +124,111 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 .told{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .told input[type=email]{flex:1;min-width:200px;padding:10px 12px;border:1px solid var(--rule);background:var(--field,#fff);color:var(--ink);font:inherit}
 .told button{border:0;cursor:pointer}
+
+/* ── the mark table ───────────────────────── */
+table.mark{border-collapse:collapse;font-family:var(--mono);font-size:14px;width:100%;max-width:520px}
+table.mark th{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:right;padding:6px 10px;border-bottom:1px solid var(--rule)}
+table.mark th:first-child{text-align:left}
+table.mark td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--rule-2);white-space:nowrap}
+table.mark td:first-child{text-align:left;font-weight:600}
+table.mark td small{font-weight:400;color:var(--ink-3);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
+table.mark tr.ref td{color:var(--ink-3);font-weight:400}
+table.mark td.up{color:var(--pass)}
 </style>
 
 <div class="wrap">
 
 <header>
   <p class="kicker">StokPix · Systematic Trading Desk · <a href="https://x.com/StokPix">@StokPix</a></p>
-  <h1>Two hundred tested. Three strong enough to sell.</h1>
-  <p class="lede">Every edge here cleared a sealed holdout on data it had never seen. <strong>The record is the product, losses included.</strong></p>
+  <h1>What to hold, and what moves it next.</h1>
+  <p class="lede">Three portfolios, marked every week against the market and against gold. <strong>Every week goes on the record, won or lost.</strong> You pick the one you hold. Nothing is tailored to you.</p>
 
   <div class="tally">
-    <div><b>200+</b><span>strategies tested</span></div>
-    <div><b>5</b><span>validated on unseen data</span></div>
-    <div><b>3</b><span>on the board</span></div>
-    <div><b>317</b><span>out-of-sample trades</span></div>
+    <div><b>&times;4.7</b><span>B_BAL since 2003, in dollars</span></div>
+    <div><b>&minus;26%</b><span>its worst fall · the market &minus;56%</span></div>
+    <div><b>+5.0%</b><span>this year · the market +12.6%</span></div>
+    <div><b>23 yrs</b><span>measured, dividends in</span></div>
   </div>
 </header>
 
 <section>
-  <h2>The board</h2>
-  <p class="sub">Net of the desk&rsquo;s measured fee, charged on every trade.</p>
+  <h2>The mark</h2>
+  <p class="sub">To Friday 18 September&rsquo;s close, dividends in. Posted every Saturday at <a href="https://x.com/search?q=from%3AStokPix%20%22the%20mark%22&f=live">@StokPix, &ldquo;The mark.&rdquo;</a></p>
+  <table class="mark">
+    <thead><tr><th></th><th>this week</th><th>this year</th><th>worst fall</th></tr></thead>
+    <tbody>
+      <tr><td>B_BAL</td><td>0.0%</td><td>+5.0%</td><td>&minus;26%</td></tr>
+      <tr><td>B_GROW</td><td>&minus;0.1%</td><td>+7.2%</td><td>&minus;34%</td></tr>
+      <tr><td>ALPHA <small>stocks</small></td><td class="up">+1.2%</td><td>+8.6%</td><td>&minus;21%<sup>*</sup></td></tr>
+      <tr class="ref"><td>S&amp;P 500</td><td>&minus;0.1%</td><td>+12.6%</td><td>&minus;56%</td></tr>
+      <tr class="ref"><td>Gold</td><td>+0.6%</td><td>+1.2%</td><td>&minus;43%</td></tr>
+    </tbody>
+  </table>
+  <p class="fine" style="margin-top:12px">ALPHA this week: all in AAPL, held since 8 September. WMT sat out. Worst falls are 2003&ndash;2026 for the mixes and the market, 2004&ndash;2026 for gold. <sup>*</sup>ALPHA since March 2023, the window both of its stock edges have been tested over.</p>
+</section>
+
+<section>
+  <h2>The portfolios</h2>
+  <p class="sub">Each one is a list of percentages you can hold in a plain brokerage account with the cash you have. No margin, no futures, nothing you cannot buy on Monday morning.</p>
 
   <div class="menu">
 
+    <div class="item">
+      <div>
+        <div class="id">B_BAL · balanced</div>
+        <div class="mkt">Shares, bonds, gold, credit</div>
+        <div class="spec">SIX FUNDS · FIXED PERCENTAGES · TRIMMED ON A BAND</div>
+      </div>
+      <div class="ev">
+        <div class="hero-pf"><i>Since 2003</i><b>&times;4.7</b></div>
+        <div><i>A year, average</i><b>7.0%</b></div>
+        <div><i>Worst fall</i><b>&minus;26%</b></div>
+        <div><i>This year</i><b>+5.0%</b></div>
+      </div>
+      <div class="buy"><span class="per">in the desk</span></div>
+    </div>
+
+    <div class="item">
+      <div>
+        <div class="id">B_GROW · growth</div>
+        <div class="mkt">More shares, fewer bonds, gold</div>
+        <div class="spec">FIVE FUNDS · FIXED PERCENTAGES · TRIMMED ON A BAND</div>
+      </div>
+      <div class="ev">
+        <div class="hero-pf"><i>Since 2003</i><b>&times;5.8</b></div>
+        <div><i>A year, average</i><b>8.1%</b></div>
+        <div><i>Worst fall</i><b>&minus;34%</b></div>
+        <div><i>This year</i><b>+7.2%</b></div>
+      </div>
+      <div class="buy"><span class="per">in the desk</span></div>
+    </div>
+
     <div class="item top">
       <div>
-        <div class="id">S323 · certified 12 Sep 2026</div>
-        <div class="mkt">Heating oil · HO</div>
-        <div class="spec">LONG · 1-week hold · US energy future</div>
+        <div class="id">ALPHA · stocks only</div>
+        <div class="mkt">Whatever has fired</div>
+        <div class="spec">ALL IN THE STOCK EDGE THAT FIRED · SPLIT WHEN TWO FIRE · CASH WHEN NONE</div>
       </div>
       <div class="ev">
-        <div class="hero-pf"><i>Profit factor, net</i><b>1.477</b></div>
-        <div><i>Win rate</i><b>53.9%</b></div>
-        <div><i>OOS trades</i><b>89</b></div>
-        <div><i>Max drawdown</i><b>0.37R</b></div>
-        <div><i>Fires</i><b>~22 / yr</b></div>
+        <div class="hero-pf"><i>Since Mar 2023</i><b>&times;1.9</b></div>
+        <div><i>A year, average</i><b>21%</b></div>
+        <div><i>Worst fall</i><b>&minus;21%</b></div>
+        <div><i>This year</i><b>+8.6%</b></div>
+        <div><i>In cash</i><b>5 of 38 wks</b></div>
       </div>
-      <div class="buy">
-        <span class="per">in the desk</span>
-      </div>
-    </div>
-
-    <div class="item">
-      <div>
-        <div class="id">S185 · certified 1 Sep 2026</div>
-        <div class="mkt">Walmart · WMT</div>
-        <div class="spec">LONG · 1-week hold · US equity</div>
-      </div>
-      <div class="ev">
-        <div><i>Profit factor, net</i><b>1.257</b></div>
-        <div><i>Win rate</i><b>57.6%</b></div>
-        <div><i>OOS trades</i><b>118</b></div>
-        <div><i>Max drawdown</i><b>0.28R</b></div>
-        <div><i>Fires</i><b>~26 / yr</b></div>
-      </div>
-      <div class="buy">
-        <span class="per">in the desk</span>
-      </div>
-    </div>
-
-    <div class="item">
-      <div>
-        <div class="id">S147 · certified 30 Aug 2026</div>
-        <div class="mkt">Apple · AAPL</div>
-        <div class="spec">LONG · 1-week hold · US equity</div>
-      </div>
-      <div class="ev">
-        <div><i>Profit factor, net</i><b>1.157</b></div>
-        <div><i>Win rate</i><b>61.8%</b></div>
-        <div><i>OOS trades</i><b>110</b></div>
-        <div><i>Max drawdown</i><b>0.33R</b></div>
-        <div><i>Fires</i><b>~32 / yr</b></div>
-      </div>
-      <div class="buy">
-        <span class="per">in the desk</span>
-      </div>
+      <div class="buy"><span class="per">in the desk</span></div>
     </div>
 
   </div>
 
+  <p class="fine" style="margin-top:16px">ALPHA holds the certified stock edges: Apple and Walmart today, Johnson &amp; Johnson when it trades, and every stock edge that certifies after them. The desk&rsquo;s commodity edges are not in it. More portfolios are added as they are asked for.</p>
+
   <div class="bundle">
     <div>
       <h3>The desk</h3>
-      <p>Every certified edge, and every new one the week it locks.</p>
+      <p>All three portfolios, their percentages, and the Monday email. Every new stock edge the week it certifies.</p>
       <p style="margin-top:10px"><b>Open.</b> The founding fifty pay <b>£9 a month, locked for as long as they stay</b>. After that £19, or £149 a year.</p>
-      <p style="margin-top:10px">What you get, and when: <b>one email every Friday after the close</b> with every edge&rsquo;s state and what the model is long from Monday. The first arrives the Friday after you join. Cancel any month from the receipt.</p>
+      <p style="margin-top:10px">What you get, and when: <b>one email every Monday before the US open</b>. For each portfolio: hold, or what to trim; its state; what ALPHA holds from Monday; the mark. The first arrives the Monday after you join. Cancel any month from the receipt.</p>
     </div>
     <div class="buy">
       <span class="strike">£19</span>
@@ -221,31 +241,59 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 </section>
 
 <section>
+  <h2>Three questions people ask first</h2>
+  <div class="cols">
+    <div class="col">
+      <h4>How much of my time?</h4>
+      <ul>
+        <li><b>One email a week</b>, Monday before the open. Most weeks it says hold.</li>
+        <li>No Discord, no chat, no screen to watch. Nothing happens during the day.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>What is the minimum?</h4>
+      <ul>
+        <li><b>Any amount.</b> The portfolios are percentages, so they scale to what you have.</li>
+        <li>£9 a month is about $145 a year: 2.9% on $5,000, 0.7% on $20,000, 0.3% on $50,000. A robo-adviser charges about 0.75% a year. <b>Below about $15,000 it is cheaper to hold the funds yourself and read the mark free.</b></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Proof?</h4>
+      <ul>
+        <li>The mark, every Saturday since 12 September, on the timeline: <a href="https://x.com/search?q=from%3AStokPix%20%22the%20mark%22&f=live">search <b>from:StokPix &ldquo;the mark&rdquo;</b></a>.</li>
+        <li>The measurement files behind every number on this page, by <a href="https://x.com/StokPix">reply</a>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
   <h2>What you get</h2>
   <div class="cols">
     <div class="col">
       <h4>You get</h4>
       <ul>
-        <li>Every edge&rsquo;s <b>state</b> after the Friday close: armed, in, or flat</li>
-        <li>What the model is <b>long, and for how long</b></li>
-        <li>The <b>full history</b>, every fire marked, won or lost</li>
-        <li>Every new certified edge, the week it locks</li>
+        <li>The <b>percentages</b> of each portfolio, and its <b>state</b></li>
+        <li>Every Monday: <b>hold, or what to trim</b>, fund by fund</li>
+        <li>What <b>ALPHA holds from Monday</b>, and for how long</li>
+        <li>The <b>full record</b>, every week marked, won or lost</li>
+        <li>Every new stock edge, the week it certifies</li>
       </ul>
     </div>
     <div class="col">
       <h4>You do not get</h4>
       <ul>
-        <li>The <b>predictor</b>, the input, or the construction</li>
-        <li>Sizing, portfolio, or anything tailored to you</li>
+        <li>The <b>rules</b>: what switches a state, what fires an edge, the inputs, the construction</li>
+        <li>Anything tailored to you, or an answer about your money</li>
         <li>Chat, a community, or a private answer</li>
       </ul>
     </div>
     <div class="col">
       <h4>Before you pay</h4>
       <ul>
-        <li><b>46 of every 100 signals lose money.</b> That is what an edge looks like</li>
-        <li>Twenty losing months in thirty-eight, nine in a row</li>
-        <li>At £19 a month you need about <b>£5,000</b> working the signals before it pays for itself. Below that, read the record free and take nothing</li>
+        <li><b>ALPHA was 12.8% under water in March.</b> Its worst fall on the record is 21%, and a week all in one stock can fall further</li>
+        <li>B_BAL fell 26% in 2020. B_GROW fell 34% in 2008. The market fell 56%</li>
+        <li>This year both mixes trail the market. That is what less drawdown costs in a year the market runs</li>
         <li>Cancel any month, <a href="https://billing.stripe.com/p/login/8x2eVe5pMg2m1dt4it2Ry00">here</a>, with the email you paid with</li>
       </ul>
     </div>
@@ -253,18 +301,66 @@ footer p{max-width:var(--measure);margin:0 0 10px}
 </section>
 
 <section>
-  <h2>What certified means here</h2>
-  <p style="margin-top:0">A region was written down and sealed <b>before</b> the holdout was opened. The holdout was scored once, with the fee charged, and cannot be re-run. Nobody signs it off; <b>the stamp comes from the tests.</b> Five cleared it. Three are strong enough net of fees to be on the board.</p>
+  <h2>For the checker</h2>
+  <p style="margin-top:0">The mixes were measured over 1,183 weeks, November 2003 to August 2026, dividends and fund fees in, the same percentages every week, one pre-declared rule and no search. ALPHA is built from the stock edges&rsquo; sealed holdouts: a region was written down and sealed <b>before</b> the holdout was opened, scored once with the fee charged, and cannot be re-run. Nobody signs it off; <b>the stamp comes from the tests.</b> Five edges cleared it; the two stock edges are in ALPHA, the commodity edges stay on the desk&rsquo;s own book.</p>
+
+  <div class="menu" style="margin-top:22px">
+    <div class="item">
+      <div>
+        <div class="id">S185 · certified 1 Sep 2026 · in ALPHA</div>
+        <div class="mkt">Walmart · WMT</div>
+        <div class="spec">LONG · 1-WEEK HOLD · US EQUITY</div>
+      </div>
+      <div class="ev">
+        <div><i>Profit factor, net</i><b>1.257</b></div>
+        <div><i>Win rate</i><b>57.6%</b></div>
+        <div><i>OOS trades</i><b>118</b></div>
+        <div><i>Max drawdown</i><b>0.28R</b></div>
+        <div><i>Fires</i><b>~26 / yr</b></div>
+      </div>
+      <div class="buy"><span class="per">stock edge</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="id">S147 · certified 30 Aug 2026 · in ALPHA</div>
+        <div class="mkt">Apple · AAPL</div>
+        <div class="spec">LONG · 1-WEEK HOLD · US EQUITY</div>
+      </div>
+      <div class="ev">
+        <div><i>Profit factor, net</i><b>1.157</b></div>
+        <div><i>Win rate</i><b>61.8%</b></div>
+        <div><i>OOS trades</i><b>110</b></div>
+        <div><i>Max drawdown</i><b>0.33R</b></div>
+        <div><i>Fires</i><b>~32 / yr</b></div>
+      </div>
+      <div class="buy"><span class="per">stock edge</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="id">S323 · certified 12 Sep 2026 · desk book only</div>
+        <div class="mkt">Heating oil · HO</div>
+        <div class="spec">LONG · 1-WEEK HOLD · US ENERGY FUTURE</div>
+      </div>
+      <div class="ev">
+        <div><i>Profit factor, net</i><b>1.477</b></div>
+        <div><i>Win rate</i><b>53.9%</b></div>
+        <div><i>OOS trades</i><b>89</b></div>
+        <div><i>Max drawdown</i><b>0.37R</b></div>
+        <div><i>Fires</i><b>~22 / yr</b></div>
+      </div>
+      <div class="buy"><span class="per">not in ALPHA</span></div>
+    </div>
+  </div>
 
   <div class="note" style="margin-top:22px">
-    <p><b>Not predictions. No guarantee.</b> Every number here is a measurement of what already happened on data the model had not seen. Past results do not imply future ones, and any edge can stop working without notice.</p>
+    <p><b>Not predictions. No guarantee.</b> Every number here is a measurement of what already happened. Past results do not imply future ones, and any portfolio or edge can stop working without notice.</p>
   </div>
 </section>
 
 <footer>
-  <p class="fine"><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Trading carries risk and you can lose more than you put in. If you need advice, speak to someone authorised to give it.</p>
+  <p class="fine"><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Investing carries risk and you can lose money. If you need advice, speak to someone authorised to give it.</p>
   <p class="fine"><b>Access is personal</b> to the email you paid with. Sharing or republishing the weekly state ends the subscription. We may end any subscription at any time and will refund the current period when we do.</p>
-  <p class="fine">Every figure is read from the desk&rsquo;s locked-edge register. Five cleared the holdout (gross: S323 1.623 · S185 1.618 · S147 1.270 · S114 1.066 · S142 1.014); the three on the board are the three that are strong enough net of the measured fee. Holdouts are each market&rsquo;s sealed final years, opened once on 30 January 2026 and scored once. The trade files behind any row are available by <a href="https://x.com/StokPix">reply</a>.</p>
+  <p class="fine">The mixes&rsquo; figures are read from the desk&rsquo;s signed allocation measurement (2003&ndash;2026, weekly, dividends in). ALPHA&rsquo;s figures are built from the stock edges&rsquo; Gate-3 trade files at a $10,000 unit with the measured fee, then the live book from 8 September 2026. Weekly and year-to-date figures use adjusted closes to the Friday named. Five edges cleared the holdout (gross: S323 1.623 · S185 1.618 · S147 1.270 · S114 1.066 · S142 1.014). The files behind any figure are available by <a href="https://x.com/StokPix">reply</a>.</p>
   <p class="fine">© 2026 StokPix · <a href="https://x.com/StokPix">@StokPix</a></p>
 </footer>
 
