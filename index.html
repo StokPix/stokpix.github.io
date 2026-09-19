@@ -102,7 +102,7 @@ h2{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 96;
   line-height:1.05;letter-spacing:-.02em;margin:0 0 10px}
 .row .does{color:var(--ink-2);font-size:15.5px;line-height:1.45;max-width:36ch;margin:0}
 .row .does b{color:var(--ink);font-weight:600}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 14px}
 .stat i{font-style:normal;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
 .stat b{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.1}
 .stat.lead b{color:var(--ink)}
@@ -191,12 +191,6 @@ footer b{color:var(--ink-2)}
   <svg class="seal" viewBox="0 0 400 400" aria-label="StokPix seal"><circle cx="200" cy="200" r="196" fill="#8b1a1a"/><circle cx="200" cy="200" r="160" fill="none" stroke="#f5ecd6" stroke-width="4"/><circle cx="200" cy="200" r="148" fill="none" stroke="#f5ecd6" stroke-width="2"/><polyline points="118,208 178,268 292,142" fill="none" stroke="#f5ecd6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </header>
 
-<div class="live">
-  <span class="dot" aria-hidden="true"></span>
-  <span>The active portfolio this week: <b>100% Apple</b></span>
-  <span>Members were told on 8 September · <span class="up">+6.2% since</span></span>
-  <span class="since">246 strategies checked · 23 years measured · marked every week, won or lost</span>
-</div>
 
 <section id="portfolios">
   <p class="eyebrow">Pick your portfolio</p>
@@ -215,10 +209,9 @@ footer b{color:var(--ink-2)}
         <div class="stat lead"><i>Average year</i><b>7.0%</b></div>
         <div class="stat"><i>This year</i><b>+5.0%</b></div>
         <div class="stat"><i>Worst fall</i><b>&minus;26%</b></div>
-        <div class="stat"><i>Since 2003</i><b>&times;4.7</b></div>
       </div>
       <div class="falls">
-        <p class="t">Worst fall, 2003&ndash;2026</p>
+        <p class="t">Worst fall</p>
         <div class="bar"><span class="lab">B_BAL</span><span class="track"><span class="fill" style="width:46%"></span></span><span class="v">&minus;26%</span></div>
         <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
       </div>
@@ -234,10 +227,9 @@ footer b{color:var(--ink-2)}
         <div class="stat lead"><i>Average year</i><b>8.1%</b></div>
         <div class="stat"><i>This year</i><b>+7.2%</b></div>
         <div class="stat"><i>Worst fall</i><b>&minus;34%</b></div>
-        <div class="stat"><i>Since 2003</i><b>&times;5.8</b></div>
       </div>
       <div class="falls">
-        <p class="t">Worst fall, 2003&ndash;2026</p>
+        <p class="t">Worst fall</p>
         <div class="bar"><span class="lab">B_GROW</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="v">&minus;34%</span></div>
         <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
       </div>
@@ -247,23 +239,22 @@ footer b{color:var(--ink-2)}
       <div>
         <p class="id">ALPHA</p>
         <h3 class="name">The active one</h3>
-        <p class="does">Holds the stocks the desk&rsquo;s models have just called, and cash when they haven&rsquo;t. <b>This week: 100% Apple.</b></p>
+        <p class="does">Holds the stocks the desk&rsquo;s models have just called, and cash when they haven&rsquo;t.</p>
       </div>
       <div class="stats">
         <div class="stat lead"><i>Average year</i><b>21%</b></div>
         <div class="stat"><i>This year</i><b>+8.6%</b></div>
         <div class="stat"><i>Worst fall</i><b>&minus;21%</b></div>
-        <div class="stat"><i>Since Mar 2023</i><b>&times;1.9</b></div>
       </div>
       <div class="falls">
-        <p class="t">Worst fall, since Mar 2023</p>
+        <p class="t">Worst fall</p>
         <div class="bar"><span class="lab">ALPHA</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="v">&minus;21%</span></div>
         <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
       </div>
     </div>
 
   </div>
-  <p class="compare">For comparison, the S&amp;P 500 is up 12.6% this year; gold is up 1.2%, and its worst fall was 43%. All figures to Friday 18 September 2026, dividends in. Market bars are the S&amp;P 500&rsquo;s worst fall over 2003&ndash;2026.</p>
+  <p class="compare">For comparison, the S&amp;P 500 is up 12.6% this year; gold is up 1.2%. Figures to Friday 18 September 2026, dividends in. B_BAL and B_GROW are measured from 2003, ALPHA from 2023.</p>
 </section>
 
 <section id="inside">
@@ -276,14 +267,13 @@ footer b{color:var(--ink-2)}
       <ul>
         <li>The <b>exact percentages</b> of all three portfolios</li>
         <li>Anything to <b>trim</b>, fund by fund</li>
-        <li>What the active one <b>holds this week</b></li>
+        <li>A short <b>note on the week</b></li>
       </ul>
     </div>
     <div class="col">
       <h4>When it moves</h4>
       <ul>
-        <li>A new call in the active portfolio: <b>members hear the day it happens</b></li>
-        <li>A change to any portfolio: members first</li>
+        <li>When any portfolio changes, <b>members hear the day it happens</b></li>
       </ul>
     </div>
     <div class="col">
@@ -315,12 +305,11 @@ footer b{color:var(--ink-2)}
   <p class="eyebrow">Questions</p>
   <h2>Before you join.</h2>
   <dl class="qa">
-    <div><dt>What makes it worth £19?</dt><dd>Members were told Apple on 8 September. The steady portfolio is what you hold the rest of the time.</dd></div>
-    <div><dt>I only have a few thousand.</dt><dd>The portfolios are percentages. They scale to what you have.</dd></div>
-    <div><dt>Is this a signals group?</dt><dd>No. It is three portfolios and their exact percentages. The active one is the part that moves.</dd></div>
+    <div><dt>What do I get for £19?</dt><dd>A portfolio you can copy in ten minutes, and someone to ask. Every Monday: the exact percentages of all three portfolios, anything to trim, and a short note on the week. Write in any time. Members are answered.</dd></div>
+    <div><dt>I&rsquo;m new to this, and I don&rsquo;t have much.</dt><dd>That is who this is for. Pick the steady one, put its percentages into an ordinary brokerage account, and hold it. The portfolios are percentages, so they work at any size.</dd></div>
     <div><dt>How much of my time?</dt><dd>One email on Monday. Ten minutes.</dd></div>
-    <div><dt>What if it loses?</dt><dd>You read it on Saturday&rsquo;s mark like everyone else: <a href="https://x.com/search?q=from%3AStokPix%20%22the%20mark%22&f=live">from:StokPix &ldquo;the mark&rdquo;</a>. Every week, won or lost.</dd></div>
-    <div><dt>Can I ask questions?</dt><dd>Yes. Members write to the desk and are answered.</dd></div>
+    <div><dt>How do I know it&rsquo;s real?</dt><dd>Every week is marked in public, won or lost. Each portfolio carries a certificate of its measurement, and members can have it.</dd></div>
+    <div><dt>What if it loses?</dt><dd>Some weeks it will, and you will read it on Saturday&rsquo;s mark like everyone else. The steady one&rsquo;s worst fall in 23 years was 26%. The market&rsquo;s was 56%.</dd></div>
   </dl>
 </section>
 
