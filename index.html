@@ -1,210 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <title>StokPix — The Desk</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Three portfolios, run by the numbers and marked every week in public. One email a week. A desk that answers.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.png" type="image/png" sizes="48x48">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 :root{
-  --paper:#F6F7F6; --paper-2:#EDEFEE;
-  --ink:#121614; --ink-2:#3E4643; --ink-3:#6B736E;
-  --rule:#C9CEC9; --rule-2:#DDE1DD;
-  --stamp:#8b1a1a; --stamp-soft:#8b1a1a14;
-  --pass:#009028; --fail:#B3261E; --fail-soft:#B3261E14;
-  --shadow:rgba(18,22,20,.07);
-  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --paper:#F4F5F2; --paper-2:#EBEDE9; --paper-3:#FFFFFF;
+  --ink:#15191A; --ink-2:#3F4846; --ink-3:#6E7875;
+  --rule:#D6DAD6; --rule-2:#E4E7E3;
+  --wax:#8B1A1A; --wax-ink:#F5ECD6; --wax-soft:rgba(139,26,26,.08);
+  --market:#B3261E; --market-soft:rgba(179,38,30,.14);
+  --up:#1F7A3A;
+  --shadow:0 18px 50px -24px rgba(21,25,26,.28);
+  --display:"Fraunces","Iowan Old Style",Georgia,"Times New Roman",serif;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-  --measure:66ch;
-  --pad:clamp(20px,5vw,44px);
+  --gutter:clamp(18px,5vw,48px);
+  color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#0F1211; --paper-2:#171B19;
-    --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
-    --rule:#2C332F; --rule-2:#232926;
-    --stamp:#c94a48; --stamp-soft:#c94a481f;
-    --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
-    --shadow:rgba(0,0,0,.4);
+    --paper:#111514; --paper-2:#181D1B; --paper-3:#1E2422;
+    --ink:#ECEEEA; --ink-2:#B9C0BC; --ink-3:#86908C;
+    --rule:#2C3330; --rule-2:#232926;
+    --wax:#C94A48; --wax-ink:#1A0F0F; --wax-soft:rgba(201,74,72,.14);
+    --market:#F0655C; --market-soft:rgba(240,101,92,.18);
+    --up:#4BC26E;
+    --shadow:0 18px 50px -24px rgba(0,0,0,.7);
+    color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0F1211; --paper-2:#171B19;
-  --ink:#E8EBE8; --ink-2:#B4BBB6; --ink-3:#848C87;
-  --rule:#2C332F; --rule-2:#232926;
-  --stamp:#c94a48; --stamp-soft:#c94a481f;
-  --pass:#3FBF63; --fail:#F2635A; --fail-soft:#F2635A1F;
-  --shadow:rgba(0,0,0,.4);
+  --paper:#111514; --paper-2:#181D1B; --paper-3:#1E2422;
+  --ink:#ECEEEA; --ink-2:#B9C0BC; --ink-3:#86908C;
+  --rule:#2C3330; --rule-2:#232926;
+  --wax:#C94A48; --wax-ink:#1A0F0F; --wax-soft:rgba(201,74,72,.14);
+  --market:#F0655C; --market-soft:rgba(240,101,92,.18);
+  --up:#4BC26E;
+  --shadow:0 18px 50px -24px rgba(0,0,0,.7);
+  color-scheme:dark;
 }
 
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
-  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1020px;margin:0 auto;padding:0 var(--pad)}
-a{color:var(--stamp)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;padding-inline:var(--gutter);padding-block:0 96px}
+a{color:var(--wax);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--wax);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance}
 
-/* ── masthead ─────────────────────────────── */
-header{border-bottom:1px solid var(--rule);padding:clamp(38px,7vw,72px) 0 clamp(26px,4vw,40px)}
-.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 18px}
-h1{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.08;
-  font-size:clamp(34px,6vw,58px);margin:0 0 20px;max-width:18ch}
-.lede{font-size:clamp(17px,2.2vw,20px);line-height:1.5;color:var(--ink-2);max-width:var(--measure);margin:0}
-.lede strong{color:var(--ink);font-weight:600}
+/* ── masthead ─────────────────────────── */
+.mast{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:34px;height:34px;flex:none}
+.brand b{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.brand span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}
+.mast .cta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  color:var(--wax);border:1px solid var(--wax);padding:9px 14px;border-radius:2px;white-space:nowrap}
+.mast .cta:hover{background:var(--wax);color:var(--wax-ink)}
 
-.tally{display:flex;flex-wrap:wrap;gap:0;margin:32px 0 0;border:1px solid var(--rule);border-radius:3px;
-  overflow:hidden;background:var(--paper-2)}
-.tally div{flex:1 1 130px;padding:14px 16px;border-right:1px solid var(--rule)}
-.tally div:last-child{border-right:0}
-.tally b{display:block;font-family:var(--mono);font-size:clamp(20px,3vw,26px);font-weight:600;line-height:1.2}
-.tally span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--ink-3);margin-top:5px}
+/* ── hero ─────────────────────────────── */
+.hero{padding:clamp(48px,8vw,96px) 0 clamp(36px,5vw,56px);display:grid;gap:28px;grid-template-columns:minmax(0,1fr) auto;align-items:end}
+.hero h1{font-family:var(--display);font-weight:800;font-variation-settings:"opsz" 144;
+  font-size:clamp(40px,7.4vw,86px);line-height:.98;letter-spacing:-.03em;margin:0 0 26px;max-width:14ch}
+.hero .lede{font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--ink-2);max-width:34ch;margin:0}
+.hero .lede b{color:var(--ink);font-weight:600}
+.seal{width:clamp(96px,14vw,150px);height:auto;filter:drop-shadow(0 12px 22px rgba(139,26,26,.28));transform:rotate(-8deg)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.seal{width:84px;order:-1;transform:rotate(-8deg)}}
 
-/* ── sections ─────────────────────────────── */
-section{padding:clamp(40px,6vw,64px) 0;border-bottom:1px solid var(--rule-2)}
-h2{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.4vw,31px);
-  letter-spacing:-.01em;margin:0 0 8px}
-.sub{color:var(--ink-3);max-width:var(--measure);margin:0 0 30px;font-size:15.5px}
-p{max-width:var(--measure)}
+.live{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:16px 0;font-family:var(--mono);font-size:13.5px;color:var(--ink-2)}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--up);box-shadow:0 0 0 4px rgba(31,122,58,.15);flex:none}
+.live b{color:var(--ink);font-weight:600}
+.live .up{color:var(--up);font-weight:600}
+.live .since{color:var(--ink-3);margin-left:auto}
+@media (max-width:720px){.live .since{margin-left:0}}
 
-/* ── the menu ─────────────────────────────── */
-.menu{display:grid;gap:14px}
-.item{border:1px solid var(--rule);border-radius:4px;background:var(--paper-2);
-  padding:20px clamp(18px,3vw,26px);display:grid;gap:18px;
-  grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;align-items:center}
-.item.top{border-color:var(--stamp);box-shadow:0 0 0 1px var(--stamp) inset}
-.id{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.mkt{font-family:var(--serif);font-size:clamp(21px,3vw,26px);font-weight:600;line-height:1.15;margin:3px 0 6px}
-.spec{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
-.ev{display:flex;flex-wrap:wrap;gap:5px 22px;font-family:var(--mono);font-size:12.5px;min-width:0}
-.ev i{font-style:normal;display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:2px}
-.ev b{font-weight:600;font-size:15px;white-space:nowrap}
-.hero-pf b{color:var(--pass)}
-.buy{text-align:right;white-space:nowrap}
-.price{font-family:var(--mono);font-size:clamp(21px,3vw,25px);font-weight:600;display:block}
-.per{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);display:block;margin-bottom:11px}
-.btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
-  padding:10px 17px;border-radius:3px;text-decoration:none;border:1px solid var(--stamp);
-  color:var(--stamp);background:transparent;transition:background .12s,color .12s}
-.btn:hover{background:var(--stamp);color:var(--paper)}
-.btn.solid{background:var(--stamp);color:var(--paper)}
-.btn.solid:hover{opacity:.88}
-@media (max-width:780px){
-  .item{grid-template-columns:1fr;gap:14px}
-  .buy{text-align:left}
+/* ── sections ─────────────────────────── */
+section{padding:clamp(48px,7vw,84px) 0;border-bottom:1px solid var(--rule-2)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--wax);margin:0 0 14px}
+h2{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 96;font-size:clamp(30px,4.4vw,46px);
+  line-height:1.05;letter-spacing:-.02em;margin:0 0 12px}
+.sub{color:var(--ink-2);max-width:56ch;margin:0 0 34px;font-size:17px}
+
+/* ── the ledgers ──────────────────────── */
+.ledger{display:grid;gap:0;border:1px solid var(--rule);border-radius:4px;background:var(--paper-3);overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,.9fr);gap:clamp(18px,3vw,40px);
+  padding:clamp(22px,3.4vw,34px) clamp(18px,3vw,32px);border-top:1px solid var(--rule);align-items:center}
+.row:first-child{border-top:0}
+.row.active{background:var(--wax-soft)}
+.row .id{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.row .name{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 96;font-size:clamp(26px,3.4vw,36px);
+  line-height:1.05;letter-spacing:-.02em;margin:0 0 10px}
+.row .does{color:var(--ink-2);font-size:15.5px;line-height:1.45;max-width:36ch;margin:0}
+.row .does b{color:var(--ink);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.stat i{font-style:normal;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.stat b{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.stat.lead b{color:var(--ink)}
+.falls{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.falls .t{letter-spacing:.13em;text-transform:uppercase;margin:0 0 10px;font-size:10.5px}
+.bar{display:grid;grid-template-columns:5.2em minmax(0,1fr) 3.4em;align-items:center;gap:10px;margin-bottom:8px}
+.bar .lab{color:var(--ink-2)}
+.bar .track{height:12px;background:var(--rule-2);border-radius:2px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink);border-radius:2px}
+.bar.mkt .fill{background:var(--market)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+.bar.mkt .v{color:var(--market)}
+@media (max-width:820px){.row{grid-template-columns:1fr;gap:20px}}
+
+.compare{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:18px 0 0;line-height:1.7}
+
+/* ── inside ───────────────────────────── */
+.cols{display:grid;gap:28px 40px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.col h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.col ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.col li{color:var(--ink-2);font-size:16px;line-height:1.45;padding-left:18px;position:relative}
+.col li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--wax)}
+.col li b{color:var(--ink);font-weight:600}
+
+/* ── the door ─────────────────────────── */
+.door{margin-top:clamp(36px,5vw,56px);border:1px solid var(--wax);border-radius:4px;background:var(--paper-3);box-shadow:var(--shadow);
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);overflow:hidden}
+.door .say{padding:clamp(26px,4vw,40px)}
+.door h3{font-family:var(--display);font-weight:800;font-variation-settings:"opsz" 96;font-size:clamp(28px,3.8vw,40px);
+  line-height:1.02;letter-spacing:-.02em;margin:0 0 14px}
+.door p{margin:0 0 12px;color:var(--ink-2);max-width:44ch}
+.door p b{color:var(--ink)}
+.door .pay{background:var(--wax);color:var(--wax-ink);padding:clamp(26px,4vw,40px);display:grid;align-content:center;gap:6px}
+.door .pay .was{font-family:var(--mono);font-size:14px;text-decoration:line-through;opacity:.7}
+.door .pay .price{font-family:var(--display);font-weight:800;font-variation-settings:"opsz" 144;font-size:clamp(54px,8vw,84px);line-height:.9;letter-spacing:-.04em}
+.door .pay .per{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:18px}
+.btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;
+  padding:14px 20px;border-radius:2px;border:1px solid var(--wax-ink);color:var(--wax-ink);text-align:center;transition:background .12s,color .12s}
+.btn.solid{background:var(--wax-ink);color:var(--wax)}
+.btn.solid:hover{background:transparent;color:var(--wax-ink)}
+.btn:hover{background:var(--wax-ink);color:var(--wax)}
+.door .pay .year{font-family:var(--mono);font-size:13px;margin-top:16px;opacity:.9}
+.door .pay .year a{color:var(--wax-ink)}
+@media (max-width:720px){.door{grid-template-columns:1fr}}
+
+/* ── questions ────────────────────────── */
+.qa{display:grid;gap:0;border-top:1px solid var(--rule)}
+.qa div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:12px 40px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.qa dt{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 48;font-size:21px;line-height:1.2;letter-spacing:-.01em;margin:0}
+.qa dd{margin:0;color:var(--ink-2);font-size:16.5px;line-height:1.5;max-width:52ch}
+@media (max-width:720px){.qa div{grid-template-columns:1fr;gap:6px}}
+
+/* ── footer ───────────────────────────── */
+footer{padding:40px 0 20px;color:var(--ink-3);font-size:13px}
+footer p{max-width:78ch;margin:0 0 10px;font-family:var(--mono);font-size:11.5px;line-height:1.7}
+footer b{color:var(--ink-2)}
+
+/* ── mobile bar ───────────────────────── */
+.bar-cta{display:none}
+@media (max-width:720px){
+  .bar-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--wax);color:var(--wax-ink);padding:12px var(--gutter);padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
+    font-family:var(--mono);font-size:13px}
+  .bar-cta .btn{padding:10px 14px;font-size:12px}
 }
-
-/* ── bundle ───────────────────────────────── */
-.bundle{margin-top:22px;border:1px solid var(--stamp);border-radius:4px;background:var(--stamp-soft);
-  padding:clamp(22px,3.5vw,30px);display:flex;flex-wrap:wrap;gap:22px;
-  align-items:center;justify-content:space-between}
-.bundle h3{font-family:var(--serif);font-size:clamp(22px,3vw,27px);font-weight:600;margin:0 0 6px}
-.bundle p{margin:0;color:var(--ink-2);font-size:15px;max-width:46ch}
-.strike{color:var(--ink-3);text-decoration:line-through;font-family:var(--mono);font-size:14px}
-
-/* ── plain blocks ─────────────────────────── */
-.cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
-.col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule-2)}
-.col ul{margin:0;padding-left:18px}
-.col li{margin-bottom:7px;color:var(--ink-2);font-size:15px}
-.col li b{color:var(--ink)}
-
-.note{border-left:2px solid var(--fail);background:var(--fail-soft);padding:16px 20px;border-radius:0 3px 3px 0}
-.note p{margin:0;font-size:15px;color:var(--ink-2)}
-.note p b{color:var(--ink)}
-
-footer{padding:44px 0 60px;color:var(--ink-3);font-size:13px}
-footer p{max-width:var(--measure);margin:0 0 10px}
-.fine{font-family:var(--mono);font-size:11.5px;line-height:1.7}
-.told{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.told input[type=email]{flex:1;min-width:200px;padding:10px 12px;border:1px solid var(--rule);background:var(--field,#fff);color:var(--ink);font:inherit}
-.told button{border:0;cursor:pointer}
-
-/* ── the mark table ───────────────────────── */
-table.mark{border-collapse:collapse;font-family:var(--mono);font-size:14px;width:100%;max-width:520px}
-table.mark th{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:500;text-align:right;padding:6px 10px;border-bottom:1px solid var(--rule)}
-table.mark th:first-child{text-align:left}
-table.mark td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--rule-2);white-space:nowrap}
-table.mark td:first-child{text-align:left;font-weight:600}
-table.mark td small{font-weight:400;color:var(--ink-3);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-left:6px}
-table.mark tr.ref td{color:var(--ink-3);font-weight:400}
-table.mark td.up{color:var(--pass)}
-.does{font-size:15px;color:var(--ink-2);max-width:40ch;margin-top:4px;line-height:1.45}
-.does b{color:var(--ink)}
-.proof{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin:22px 0 0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.seal{transform:none}}
 </style>
-
+</head>
+<body>
 <div class="wrap">
 
-<header>
-  <p class="kicker">StokPix · The Desk · <a href="https://x.com/StokPix">@StokPix</a></p>
-  <h1>What to hold, and what moves it next.</h1>
-  <p class="lede">Three portfolios, run by the numbers. One email a week. A desk that answers. <strong>Members were told Apple on 8 September. It is up 6.2% since.</strong></p>
-  <p class="proof">246 strategies checked &nbsp;·&nbsp; 23 years measured &nbsp;·&nbsp; marked in public every week, won or lost</p>
+<div class="mast">
+  <a class="brand" href="https://x.com/StokPix">
+    <svg viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196" fill="#8b1a1a"/><circle cx="200" cy="200" r="160" fill="none" stroke="#f5ecd6" stroke-width="4"/><circle cx="200" cy="200" r="148" fill="none" stroke="#f5ecd6" stroke-width="2"/><polyline points="118,208 178,268 292,142" fill="none" stroke="#f5ecd6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <b>StokPix</b><span>The Desk</span>
+  </a>
+  <a class="cta" href="#join">Join · £9</a>
+</div>
+
+<header class="hero">
+  <div>
+    <h1>What to hold, and what moves it next.</h1>
+    <p class="lede">Three portfolios, run by the numbers and marked every week in public. One email a week. <b>A desk that answers.</b></p>
+  </div>
+  <svg class="seal" viewBox="0 0 400 400" aria-label="StokPix seal"><circle cx="200" cy="200" r="196" fill="#8b1a1a"/><circle cx="200" cy="200" r="160" fill="none" stroke="#f5ecd6" stroke-width="4"/><circle cx="200" cy="200" r="148" fill="none" stroke="#f5ecd6" stroke-width="2"/><polyline points="118,208 178,268 292,142" fill="none" stroke="#f5ecd6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </header>
 
-<section>
-  <h2>Pick your portfolio</h2>
-  <p class="sub">Members get the exact percentages of all three. Hold one, or blend them.</p>
+<div class="live">
+  <span class="dot" aria-hidden="true"></span>
+  <span>The active portfolio this week: <b>100% Apple</b></span>
+  <span>Members were told on 8 September · <span class="up">+6.2% since</span></span>
+  <span class="since">246 strategies checked · 23 years measured · marked every week, won or lost</span>
+</div>
 
-  <div class="menu">
+<section id="portfolios">
+  <p class="eyebrow">Pick your portfolio</p>
+  <h2>Hold one. Or blend them.</h2>
+  <p class="sub">Members get the exact percentages of all three. Each one can be held in an ordinary brokerage account with the money you have.</p>
 
-    <div class="item">
+  <div class="ledger">
+
+    <div class="row">
       <div>
-        <div class="id">B_BAL</div>
-        <div class="mkt">The steady one</div>
-        <div class="does">Built to be held through a crash. In 23 years its worst fall was less than half the market&rsquo;s.</div>
+        <p class="id">B_BAL</p>
+        <h3 class="name">The steady one</h3>
+        <p class="does">Built to be held through a crash. In 23 years its worst fall was <b>less than half the market&rsquo;s</b>.</p>
       </div>
-      <div class="ev">
-        <div class="hero-pf"><i>A year, on average</i><b>7.0%</b></div>
-        <div><i>Worst fall</i><b>&minus;26%</b></div>
-        <div><i>This year</i><b>+5.0%</b></div>
-        <div><i>Since 2003</i><b>&times;4.7</b></div>
+      <div class="stats">
+        <div class="stat lead"><i>Average year</i><b>7.0%</b></div>
+        <div class="stat"><i>This year</i><b>+5.0%</b></div>
+        <div class="stat"><i>Worst fall</i><b>&minus;26%</b></div>
+        <div class="stat"><i>Since 2003</i><b>&times;4.7</b></div>
       </div>
-      <div class="buy"><span class="per">in the desk</span></div>
+      <div class="falls">
+        <p class="t">Worst fall, 2003&ndash;2026</p>
+        <div class="bar"><span class="lab">B_BAL</span><span class="track"><span class="fill" style="width:46%"></span></span><span class="v">&minus;26%</span></div>
+        <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
+      </div>
     </div>
 
-    <div class="item">
+    <div class="row">
       <div>
-        <div class="id">B_GROW</div>
-        <div class="mkt">The growth one</div>
-        <div class="does">More of the market&rsquo;s rise, still with a floor under it.</div>
+        <p class="id">B_GROW</p>
+        <h3 class="name">The growth one</h3>
+        <p class="does">More of the market&rsquo;s rise, <b>still with a floor under it</b>.</p>
       </div>
-      <div class="ev">
-        <div class="hero-pf"><i>A year, on average</i><b>8.1%</b></div>
-        <div><i>Worst fall</i><b>&minus;34%</b></div>
-        <div><i>This year</i><b>+7.2%</b></div>
-        <div><i>Since 2003</i><b>&times;5.8</b></div>
+      <div class="stats">
+        <div class="stat lead"><i>Average year</i><b>8.1%</b></div>
+        <div class="stat"><i>This year</i><b>+7.2%</b></div>
+        <div class="stat"><i>Worst fall</i><b>&minus;34%</b></div>
+        <div class="stat"><i>Since 2003</i><b>&times;5.8</b></div>
       </div>
-      <div class="buy"><span class="per">in the desk</span></div>
+      <div class="falls">
+        <p class="t">Worst fall, 2003&ndash;2026</p>
+        <div class="bar"><span class="lab">B_GROW</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="v">&minus;34%</span></div>
+        <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
+      </div>
     </div>
 
-    <div class="item top">
+    <div class="row active">
       <div>
-        <div class="id">ALPHA</div>
-        <div class="mkt">The active one</div>
-        <div class="does">Holds the stocks the desk&rsquo;s models have just called, and cash when they haven&rsquo;t. <b>This week: 100% Apple.</b></div>
+        <p class="id">ALPHA</p>
+        <h3 class="name">The active one</h3>
+        <p class="does">Holds the stocks the desk&rsquo;s models have just called, and cash when they haven&rsquo;t. <b>This week: 100% Apple.</b></p>
       </div>
-      <div class="ev">
-        <div class="hero-pf"><i>A year, on average</i><b>21%</b></div>
-        <div><i>Worst fall</i><b>&minus;21%</b></div>
-        <div><i>This year</i><b>+8.6%</b></div>
-        <div><i>Since Mar 2023</i><b>&times;1.9</b></div>
+      <div class="stats">
+        <div class="stat lead"><i>Average year</i><b>21%</b></div>
+        <div class="stat"><i>This year</i><b>+8.6%</b></div>
+        <div class="stat"><i>Worst fall</i><b>&minus;21%</b></div>
+        <div class="stat"><i>Since Mar 2023</i><b>&times;1.9</b></div>
       </div>
-      <div class="buy"><span class="per">in the desk</span></div>
+      <div class="falls">
+        <p class="t">Worst fall, since Mar 2023</p>
+        <div class="bar"><span class="lab">ALPHA</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="v">&minus;21%</span></div>
+        <div class="bar mkt"><span class="lab">S&amp;P 500</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">&minus;56%</span></div>
+      </div>
     </div>
 
   </div>
-  <p class="fine" style="margin-top:14px">The S&amp;P 500: +12.6% this year, worst fall 56%. Gold: +1.2%, worst fall 43%. To Friday 18 September 2026, dividends in.</p>
+  <p class="compare">For comparison, the S&amp;P 500 is up 12.6% this year; gold is up 1.2%, and its worst fall was 43%. All figures to Friday 18 September 2026, dividends in. Market bars are the S&amp;P 500&rsquo;s worst fall over 2003&ndash;2026.</p>
 </section>
 
-<section>
-  <h2>What&rsquo;s inside</h2>
+<section id="inside">
+  <p class="eyebrow">What&rsquo;s inside</p>
+  <h2>One email. Every Monday. Before the market opens.</h2>
+  <p class="sub">Ten minutes, then get on with your week.</p>
   <div class="cols">
     <div class="col">
       <h4>Every Monday</h4>
@@ -230,72 +295,45 @@ table.mark td.up{color:var(--pass)}
     </div>
   </div>
 
-  <div class="bundle">
-    <div>
-      <h3>The founding fifty</h3>
+  <div class="door" id="join">
+    <div class="say">
+      <h3>The founding fifty.</h3>
       <p><b>£9 a month, for as long as you stay.</b> After the first fifty it is £19 a month, or £149 a year. Nobody who is in ever pays more.</p>
-      <p style="margin-top:10px">Your first email arrives the Monday after you join. Cancel any month.</p>
+      <p>Your first email arrives the Monday after you join. Cancel any month.</p>
     </div>
-    <div class="buy">
-      <span class="strike">£19</span>
-      <span class="price">£9</span><span class="per">per month · founding fifty</span>
+    <div class="pay">
+      <span class="was">£19</span>
+      <span class="price">£9</span>
+      <span class="per">per month · founding fifty</span>
       <a class="btn solid" href="#" data-stripe="DESK_M">Join the desk</a>
-      <div style="margin-top:14px"><span class="price" style="font-size:18px">£149</span><span class="per">per year</span>
-      <a class="btn" href="#" data-stripe="DESK_Y">Join for a year</a></div>
+      <span class="year">Or <a href="#" data-stripe="DESK_Y">£149 for the year</a></span>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Questions</h2>
-  <div class="cols">
-    <div class="col">
-      <h4>What makes it worth £19?</h4>
-      <ul>
-        <li>Members were told Apple on 8 September. The steady portfolio is what you hold the rest of the time.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>I only have a few thousand.</h4>
-      <ul>
-        <li>The portfolios are percentages. They scale to what you have.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Is this a signals group?</h4>
-      <ul>
-        <li>No. It is three portfolios and their exact percentages. The active one is the part that moves.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>How much of my time?</h4>
-      <ul>
-        <li>One email on Monday. Ten minutes.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>What if it loses?</h4>
-      <ul>
-        <li>You read it on Saturday&rsquo;s mark like everyone else: <a href="https://x.com/search?q=from%3AStokPix%20%22the%20mark%22&f=live">from:StokPix &ldquo;the mark&rdquo;</a>. Every week, won or lost.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Can I ask questions?</h4>
-      <ul>
-        <li>Yes. Members write to the desk and are answered.</li>
-      </ul>
-    </div>
-  </div>
+<section id="questions">
+  <p class="eyebrow">Questions</p>
+  <h2>Before you join.</h2>
+  <dl class="qa">
+    <div><dt>What makes it worth £19?</dt><dd>Members were told Apple on 8 September. The steady portfolio is what you hold the rest of the time.</dd></div>
+    <div><dt>I only have a few thousand.</dt><dd>The portfolios are percentages. They scale to what you have.</dd></div>
+    <div><dt>Is this a signals group?</dt><dd>No. It is three portfolios and their exact percentages. The active one is the part that moves.</dd></div>
+    <div><dt>How much of my time?</dt><dd>One email on Monday. Ten minutes.</dd></div>
+    <div><dt>What if it loses?</dt><dd>You read it on Saturday&rsquo;s mark like everyone else: <a href="https://x.com/search?q=from%3AStokPix%20%22the%20mark%22&f=live">from:StokPix &ldquo;the mark&rdquo;</a>. Every week, won or lost.</dd></div>
+    <div><dt>Can I ask questions?</dt><dd>Yes. Members write to the desk and are answered.</dd></div>
+  </dl>
 </section>
 
 <footer>
-  <p class="fine"><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Investing carries risk and you can lose money. Past results do not imply future ones. If you need advice, speak to someone authorised to give it.</p>
-  <p class="fine"><b>Access is personal</b> to the email you paid with. Sharing or republishing the weekly email ends the membership. We may end any membership at any time and will refund the current period when we do. Cancel <a href="https://billing.stripe.com/p/login/8x2eVe5pMg2m1dt4it2Ry00">here</a>.</p>
-  <p class="fine">Portfolio figures are the desk&rsquo;s own measurements: B_BAL and B_GROW weekly from November 2003, dividends and fund fees in; ALPHA from the desk&rsquo;s tested models at a $10,000 unit from March 2023, live from 8 September 2026. Adjusted closes to the Friday named. The files behind any figure are available by <a href="https://x.com/StokPix">reply</a>.</p>
-  <p class="fine">© 2026 StokPix · <a href="https://x.com/StokPix">@StokPix</a></p>
+  <p><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Investing carries risk and you can lose money. Past results do not imply future ones. If you need advice, speak to someone authorised to give it.</p>
+  <p><b>Access is personal</b> to the email you paid with. Sharing or republishing the weekly email ends the membership. We may end any membership at any time and will refund the current period when we do. Cancel <a href="https://billing.stripe.com/p/login/8x2eVe5pMg2m1dt4it2Ry00">here</a>.</p>
+  <p>Portfolio figures are the desk&rsquo;s own measurements: B_BAL and B_GROW weekly from November 2003, dividends and fund fees in; ALPHA from the desk&rsquo;s tested models at a $10,000 unit from March 2023, live from 8 September 2026. Adjusted closes to the Friday named. The files behind any figure are available by <a href="https://x.com/StokPix">reply</a>.</p>
+  <p>© 2026 StokPix · <a href="https://x.com/StokPix">@StokPix</a></p>
 </footer>
 
 </div>
+
+<div class="bar-cta"><span>The founding fifty · £9 a month</span><a class="btn solid" href="#" data-stripe="DESK_M">Join</a></div>
 
 <script>
 // Source capture — carried through to checkout, kept for the life of the session only.
@@ -305,8 +343,6 @@ table.mark td.up{color:var(--pass)}
     if(s) sessionStorage.setItem('stokpix_src', s.slice(0,60));
   }catch(e){}
 })();
-
-// Stripe payment links go here, one per item. Until they exist the buttons say so.
 var LINKS = {
   DESK_M: "https://buy.stripe.com/00wdRa05s2bw8FVg1b2Ry01",
   DESK_Y: "https://buy.stripe.com/dRm3cw19wdUe3lB4it2Ry02"
@@ -325,3 +361,5 @@ document.querySelectorAll('[data-stripe]').forEach(function(a){
   }
 });
 </script>
+</body>
+</html>
