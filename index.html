@@ -180,7 +180,7 @@ footer b{color:var(--ink-2)}
     <svg viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196" fill="#8b1a1a"/><circle cx="200" cy="200" r="160" fill="none" stroke="#f5ecd6" stroke-width="4"/><circle cx="200" cy="200" r="148" fill="none" stroke="#f5ecd6" stroke-width="2"/><polyline points="118,208 178,268 292,142" fill="none" stroke="#f5ecd6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <b>StokPix</b><span>The Desk</span>
   </a>
-  <a class="cta" href="#join">Join · £9</a>
+  <a class="cta" href="#join">Join · £149 a year</a>
 </div>
 
 <header class="hero">
@@ -287,16 +287,14 @@ footer b{color:var(--ink-2)}
 
   <div class="door" id="join">
     <div class="say">
-      <h3>The founding fifty.</h3>
-      <p><b>£9 a month, for as long as you stay.</b> After the first fifty it is £19 a month, or £149 a year. Nobody who is in ever pays more.</p>
-      <p>Your first email arrives the Monday after you join. Cancel any month.</p>
+      <h3>One price. One year.</h3>
+      <p><b>£149 a year, for as long as you stay.</b> The price you join at is the price you keep.</p>
+      <p>Your first email arrives the Monday after you join. It renews once a year, and you can stop it at any time before it does.</p>
     </div>
     <div class="pay">
-      <span class="was">£19</span>
-      <span class="price">£9</span>
-      <span class="per">per month · founding fifty</span>
-      <a class="btn solid" href="#" data-stripe="DESK_M">Join the desk</a>
-      <span class="year">Or <a href="#" data-stripe="DESK_Y">£149 for the year</a></span>
+      <span class="price">£149</span>
+      <span class="per">per year · billed once</span>
+      <a class="btn solid" href="#" data-stripe="DESK_Y">Join the desk</a>
     </div>
   </div>
 </section>
@@ -305,8 +303,8 @@ footer b{color:var(--ink-2)}
   <p class="eyebrow">Questions</p>
   <h2>Before you join.</h2>
   <dl class="qa">
-    <div><dt>What do I get for £19?</dt><dd>A portfolio you can copy in ten minutes, and someone to ask. Every Monday: the exact percentages of all three portfolios, anything to trim, and a short note on the week. Write in any time. Members are answered.</dd></div>
-    <div><dt>I&rsquo;m new to this, and I don&rsquo;t have much.</dt><dd>That is who this is for. Pick the steady one, put its percentages into an ordinary brokerage account, and hold it. The portfolios are percentages, so they work at any size.</dd></div>
+    <div><dt>What do I get for £149?</dt><dd>A portfolio you can copy in ten minutes, and someone to ask. Every Monday: the exact percentages of all three portfolios, anything to trim, and a short note on the week. Write in any time. Members are answered.</dd></div>
+    <div><dt>How much do I need?</dt><dd>Enough that £149 a year is a small cost against it: from about £20,000 upward. Below that, follow the weekly mark on X for free until you are there. The portfolios are percentages, so above the floor they work at any size.</dd></div>
     <div><dt>How much of my time?</dt><dd>One email on Monday. Ten minutes.</dd></div>
     <div><dt>How do I know it&rsquo;s real?</dt><dd>Every week is marked in public, won or lost. Each portfolio carries a certificate of its measurement, and members can have it.</dd></div>
     <div><dt>What if it loses?</dt><dd>Some weeks it will, and you will read it on Saturday&rsquo;s mark like everyone else. The steady one&rsquo;s worst fall in 21 years was 24%. The market&rsquo;s was 55%.</dd></div>
@@ -315,14 +313,14 @@ footer b{color:var(--ink-2)}
 
 <footer>
   <p><b>Not financial advice.</b> StokPix publishes systematic research. Nothing on this page is a personal recommendation, is tailored to any individual, or takes account of anyone's circumstances. No money is ever held, handled or managed on your behalf. Investing carries risk and you can lose money. Past results do not imply future ones. If you need advice, speak to someone authorised to give it.</p>
-  <p><b>Access is personal</b> to the email you paid with. Sharing or republishing the weekly email ends the membership. We may end any membership at any time and will refund the current period when we do. Cancel <a href="https://billing.stripe.com/p/login/8x2eVe5pMg2m1dt4it2Ry00">here</a>.</p>
+  <p><b>Access is personal</b> to the email you paid with. Sharing or republishing the weekly email ends the membership. We may end any membership at any time and will refund the unused part of the year when we do. Cancel <a href="https://billing.stripe.com/p/login/8x2eVe5pMg2m1dt4it2Ry00">here</a>.</p>
   <p>Portfolio figures are the desk&rsquo;s own measurements: B_BAL and B_GROW weekly from November 2004, dividends reinvested; ALPHA from the desk&rsquo;s tested models at a $10,000 unit from March 2023, live from 8 September 2026. Adjusted closes to the Friday named. The files behind any figure are available by <a href="https://x.com/StokPix">reply</a>.</p>
   <p>© 2026 StokPix · <a href="https://x.com/StokPix">@StokPix</a></p>
 </footer>
 
 </div>
 
-<div class="bar-cta"><span>The founding fifty · £9 a month</span><a class="btn solid" href="#" data-stripe="DESK_M">Join</a></div>
+<div class="bar-cta"><span>The desk · £149 a year</span><a class="btn solid" href="#" data-stripe="DESK_Y">Join</a></div>
 
 <script>
 // Source capture — carried through to checkout, kept for the life of the session only.
@@ -333,7 +331,6 @@ footer b{color:var(--ink-2)}
   }catch(e){}
 })();
 var LINKS = {
-  DESK_M: "https://buy.stripe.com/00wdRa05s2bw8FVg1b2Ry01",
   DESK_Y: "https://buy.stripe.com/dRm3cw19wdUe3lB4it2Ry02"
 };
 document.querySelectorAll('[data-stripe]').forEach(function(a){
