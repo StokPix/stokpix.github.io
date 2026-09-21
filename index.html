@@ -103,7 +103,8 @@ h2{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 96;
 .row .does{color:var(--ink-2);font-size:15.5px;line-height:1.45;max-width:36ch;margin:0}
 .row .does b{color:var(--ink);font-weight:600}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 14px}
-.stat i{font-style:normal;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+@media (max-width:480px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat i{font-style:normal;display:block;white-space:nowrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
 .stat b{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.1}
 .stat.lead b{color:var(--ink)}
 .falls{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
@@ -259,14 +260,15 @@ footer b{color:var(--ink-2)}
 
 <section id="inside">
   <p class="eyebrow">What&rsquo;s inside</p>
-  <h2>One email. Every Monday. Before the market opens.</h2>
-  <p class="sub">Ten minutes, then get on with your week.</p>
+  <h2>One email. Every Friday. An hour before the close.</h2>
+  <p class="sub">Ten minutes, then the weekend.</p>
   <div class="cols">
     <div class="col">
-      <h4>Every Monday</h4>
+      <h4>Every Friday</h4>
       <ul>
         <li>The <b>exact percentages</b> of all three portfolios</li>
-        <li>Anything to <b>trim</b>, fund by fund</li>
+        <li>Anything to <b>trim</b>, fund by fund, before the close</li>
+        <li>What the active one <b>sells today and holds from Monday</b></li>
         <li>A short <b>note on the week</b></li>
       </ul>
     </div>
@@ -288,8 +290,8 @@ footer b{color:var(--ink-2)}
   <div class="door" id="join">
     <div class="say">
       <h3>One price. One year.</h3>
-      <p><b>$199 a year.</b> One payment. Every Monday for a year, and a desk that answers.</p>
-      <p>Your first email arrives the Monday after you join. It renews once a year, and you can stop it at any time before it does.</p>
+      <p><b>$199 a year.</b> One payment. Every Friday for a year, and a desk that answers.</p>
+      <p>Your first email arrives the Friday after you join. It renews once a year, and you can stop it at any time before it does.</p>
     </div>
     <div class="pay">
       <span class="price">$199</span>
@@ -303,14 +305,14 @@ footer b{color:var(--ink-2)}
   <p class="eyebrow">Questions</p>
   <h2>Before you join.</h2>
   <dl class="qa">
-    <div><dt>What do I get for $199?</dt><dd>Three certified portfolios, not a hunch. Each one is measured, carries its certificate, and is marked in public every week, won or lost. Every Monday before the open: the exact percentages of all three, anything to trim, fund by fund, and a short note on the week. When one moves, you hear the day it happens. Copy it into your own account in ten minutes. Nothing else to buy.</dd></div>
+    <div><dt>What do I get for $199?</dt><dd>Three certified portfolios, not a hunch. Each one is measured, carries its certificate, and is marked in public every week, won or lost. Every Friday, an hour before the close: the exact percentages of all three, anything to trim, fund by fund, what the active one sells before the close and holds from Monday, and a short note on the week. When one moves, you hear the day it happens. Copy it into your own account in ten minutes. Nothing else to buy.</dd></div>
     <div><dt>Can I ask questions?</dt><dd>Yes, as many as you like. Reply to any email from the desk and you get an answer, by email, from the desk, usually the same day. You are not on your own.</dd></div>
     <div><dt>Why not just buy a tracker fund?</dt><dd>Buy one if that is all you want. A tracker holds one index and nobody answers when it falls. The desk gives you three portfolios, including the active one no tracker can hold, tells you the day anything moves, and answers when you write. Putting real money into a portfolio is not a small thing. You should not have to do it alone.</dd></div>
     <div><dt>Why not just buy the S&amp;P 500?</dt><dd>Do, if you can sit through it. In 2008 the S&amp;P fell 55% and took nearly five years to get back to even. Twenty-five thousand became eleven. Most people sell somewhere near the bottom and never get back in. The steady one gives up some return in the good years, and in exchange its worst fall was 24% and over in eighteen months. It is the portfolio you can actually hold.</dd></div>
     <div><dt>Why not a robo-adviser?</dt><dd>A robo-adviser takes a slice of your money every year, and the slice grows as your money does. The desk is $199, whatever you hold. A robo gives you a mix of trackers, nobody to write to, and your money sitting in its account. The desk gives you the steady one, the active one on top, a reply when you write, and everything stays in your own account, in your own name.</dd></div>
     <div><dt>How much do I need?</dt><dd>Enough that $199 a year is a small cost against it: from about $25,000 upward. Below that, follow the weekly mark on X for free until you are there. The portfolios are percentages, so above the floor they work at any size.</dd></div>
-    <div><dt>How much of my time?</dt><dd>One email on Monday. Ten minutes.</dd></div>
-    <div><dt>How do I know it&rsquo;s real?</dt><dd>Every week is marked in public before you read it here, won or lost. The certificate behind each portfolio shows the measurement behind every number on this page, and members can have it.</dd></div>
+    <div><dt>How much of my time?</dt><dd>One email on Friday, an hour before the close. Ten minutes.</dd></div>
+    <div><dt>How do I know it&rsquo;s real?</dt><dd>Every week is marked in public on Saturday, won or lost, the day after your email. The certificate behind each portfolio shows the measurement behind every number on this page, and members can have it.</dd></div>
     <div><dt>What if it loses?</dt><dd>Some weeks it will, and you will read it on Saturday&rsquo;s mark like everyone else. The steady one&rsquo;s worst fall in 21 years was 24%. The market&rsquo;s was 55%.</dd></div>
   </dl>
 </section>
